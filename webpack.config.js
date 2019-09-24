@@ -1,10 +1,12 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+const basePath = __dirname;
+
 module.exports = (mode = "development") => ({
-  entry: "./src/index.tsx",
+  entry: path.join(basePath, "src", "index.tsx"),
   output: {
-    path: path.join(__dirname, "/dist"),
+    path: path.join(basePath, "dist"),
     filename: "bundle.js"
   },
   resolve: {
@@ -13,7 +15,7 @@ module.exports = (mode = "development") => ({
   devtool: mode === "development" ? "inline-source-map" : "",
   devServer: {
     port: 3000,
-    contentBase: path.join(__dirname, "dist"),
+    contentBase: path.join(basePath, "dist"),
     open: true,
     compress: true,
     watchContentBase: true,
@@ -46,8 +48,8 @@ module.exports = (mode = "development") => ({
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html"
+      template: path.join(basePath, "src", "index.html"),
+      filename: "index.html"
     })
   ]
 });
