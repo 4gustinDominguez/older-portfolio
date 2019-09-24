@@ -9,7 +9,7 @@ export const App: React.FunctionComponent<AppProps> = () => (
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyle />
-        <>{`Hi, I'm fg93! Contact me at fjgalianacano@gmail.com`}</>
+        <>{`Hi, I'm frangaliana! Contact me at fjgalianacano@gmail.com`}</>
       </>
     </ThemeProvider>
   </>
