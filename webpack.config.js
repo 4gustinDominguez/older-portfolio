@@ -5,13 +5,12 @@ module.exports = (mode = "development") => ({
   entry: "./src/index.tsx",
   output: {
     path: path.join(__dirname, "/dist"),
-    publicPath: "/",
     filename: "bundle.js"
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"]
   },
-  devtool: mode !== "development" ? "eval" : "inline-source-map",
+  devtool: mode === "development" ? "inline-source-map" : "",
   devServer: {
     port: 3000,
     contentBase: path.join(__dirname, "dist"),
