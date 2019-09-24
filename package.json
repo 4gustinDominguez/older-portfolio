@@ -4,12 +4,14 @@
   "description": "My own website (portfolio) developed with React (with Hooks), Typescript, Styled-Components and Jest",
   "main": "index.tsx",
   "repository": "https://github.com/frangaliana/fg93-website.git",
+  "homepage": "https://frangaliana.github.io",
   "author": "frangaliana",
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "build": "rimraf build/dist && webpack --mode production",
-    "lint": "eslint src/*.{js,ts,tsx} --color"
+    "lint": "eslint src/*.{js,ts,tsx} --color",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
@@ -37,6 +39,7 @@
     "webpack-dev-server": "^3.8.1"
   },
   "dependencies": {
+    "gh-pages": "^2.1.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "styled-components": "^4.4.0"

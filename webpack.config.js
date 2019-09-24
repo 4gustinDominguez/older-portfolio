@@ -6,7 +6,7 @@ const basePath = __dirname;
 module.exports = (mode = 'development') => ({
   entry: path.join(basePath, 'src', 'index.tsx'),
   output: {
-    path: path.join(basePath, 'dist'),
+    path: path.join(basePath, 'build'),
     filename: 'bundle.js',
   },
   resolve: {
@@ -15,7 +15,7 @@ module.exports = (mode = 'development') => ({
   devtool: mode === 'development' ? 'inline-source-map' : '',
   devServer: {
     port: 3000,
-    contentBase: path.join(basePath, 'dist'),
+    contentBase: path.join(basePath, 'build'),
     open: true,
     compress: true,
     watchContentBase: true,
