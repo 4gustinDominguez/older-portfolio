@@ -4,7 +4,7 @@ import { ThemeProvider } from './styled-components';
 
 type AppProps = {};
 
-export const App: React.FunctionComponent<AppProps> = props => (
+export const App: React.FunctionComponent<AppProps> = () => (
   <>
     <ThemeProvider theme={theme}>
       <>
