@@ -7,12 +7,12 @@ module.exports = (mode = 'development') => ({
   entry: path.join(basePath, 'src', 'index.tsx'),
   output: {
     path: path.join(basePath, 'build'),
-    filename: 'bundle.js',
+    filename: '[name].[hash].js',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
   },
-  devtool: mode === 'development' ? 'inline-source-map' : '',
+  devtool: mode === 'development' ? 'inline-source-map' : 'eval-source-map',
   devServer: {
     port: 3000,
     contentBase: path.join(basePath, 'build'),
@@ -43,6 +43,20 @@ module.exports = (mode = 'development') => ({
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: ['file-loader'],
+      },
+      {
+        test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url-loader',
+        options: {
+          mimetype: 'application/font-woff',
+        },
+      },
+      {
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url-loader',
+        options: {
+          mimetype: 'application/octet-stream',
+        },
       },
     ],
   },
