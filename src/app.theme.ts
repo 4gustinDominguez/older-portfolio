@@ -1,5 +1,5 @@
 export const theme = {
-  familyFont: `"'Montserrat', sans-serif"`,
+  fontFamily: `"'Montserrat', sans-serif"`,
 };
 
 export type Theme = typeof theme;
