@@ -5,6 +5,7 @@ import { theme } from './app.theme';
 import { fontFaces } from './app.fonts';
 import { Mode } from './app.model';
 import { ModeSwitch } from './common';
+import { GeneralLayout } from './layouts/general-layout';
 
 type GlobalStyleProps = {
   mode: Mode;
@@ -32,8 +33,16 @@ export const App: React.FC<AppProps> = () => {
       <ThemeProvider theme={theme}>
         <>
           <GlobalStyle mode={mode} />
-          <>{`Hi, I'm frangaliana! Contact me at fjgalianacano@gmail.com`}</>
-          <ModeSwitch toggleMode={handleMode} mode={mode} />
+          <GeneralLayout
+            HeaderChildren={
+              <>
+                <h1>frangaliana</h1>
+                <ModeSwitch toggleMode={handleMode} mode={mode} />
+              </>
+            }
+            ContentChildren={<>Hi, I'm frangaliana! Contact me at fjgalianacano@gmail.com</>}
+            FooterChildren={<>Made with love ❤️ by frangaliana © 2019 frangaliana. All Rights Reserved.</>}
+          ></GeneralLayout>
         </>
       </ThemeProvider>
     </>
