@@ -10,10 +10,13 @@
     }
   },
   "rules": {
+    "react/prop-types": "off",
     "react/no-access-state-in-setstate": "error",
     "react/jsx-pascal-case": "warn",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-unused-vars": "off"
   },
   "settings": {
     "react": {
