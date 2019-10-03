@@ -17,10 +17,12 @@ export const Content = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: ${({ theme }) => theme.spacing(1)};
 `;
 
 export const Footer = styled.div`
   display: flex;
   justify-content: center;
   align-items: end;
+  margin-bottom: ${({ theme }) => theme.spacing(1)};
 `;
