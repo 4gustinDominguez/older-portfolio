@@ -36,6 +36,6 @@ export const CheckBox = styled.input<CheckboxProps>`
       margin-left: ${({ theme, mode }) => (mode === 'light' ? theme.spacing(0.5) : theme.spacing(1.5))};
       background: ${({ mode }) => (mode === 'light' ? '#ffcf96' : '#2c3e52')};
       box-shadow: ${({ mode }) => (mode === 'light' ? `none` : `8px 0 0 0 #fee5b5`)};
-      transition: all 0.3s ease-in;
+      transition: all 0.2s ease;
   }
 `;
