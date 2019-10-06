@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
   ${fontFaces}
   body{
     font-family: ${({ theme: { typography } }): string => typography.fontFamily};
-    font-size: ${({ theme: { typography } }): string => `${typography.fontSize}`};
+    font-size: ${({ theme: { typography } }): string => `${typography.fontSizes[1]}`};
     color: ${({ mode, theme: { palette } }): string => palette[mode].font};
     background-color: ${({ mode, theme: { palette } }): string => palette[mode].background}
     transition: color 0.5s ease-out, background 0.5s ease-out
