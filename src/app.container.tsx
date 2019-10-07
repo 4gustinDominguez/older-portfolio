@@ -41,7 +41,7 @@ export const App: React.FC<AppProps> = () => {
         <>
           <GlobalStyle mode={mode} />
           <Helmet>
-            <meta name="theme-color" content={theme.palette[mode].background} />
+            <meta name="theme-color" content={theme.palette[mode].addressBar} />
           </Helmet>
           <GeneralLayout
             HeaderChildren={

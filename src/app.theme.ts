@@ -5,11 +5,13 @@ export const theme = {
   },
   palette: {
     light: {
-      font: '#030205',
+      addressBar: '#C5C2D5',
+      font: '#36444F',
       background: '#e0e0e0',
     },
     dark: {
-      font: '#e0e0e0',
+      addressBar: '#323133',
+      font: '#C6FCED',
       background: '#030205',
     },
   },
