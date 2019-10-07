@@ -23,6 +23,7 @@ export const CheckBox = styled.input`
   opacity: 0;
   position: absolute;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 `;
 
 export const CheckBoxLabel = styled.label<CheckboxProps>`
@@ -36,6 +37,7 @@ export const CheckBoxLabel = styled.label<CheckboxProps>`
     align-items: center;
     box-sizing: border-box;
     padding: 0 ${spacing(0.6)}px;
+    -webkit-tap-highlight-color: transparent;
     &::after {
       content: '';
       border-radius: 50%;
