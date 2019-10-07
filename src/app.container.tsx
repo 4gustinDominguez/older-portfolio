@@ -6,6 +6,7 @@ import { fontFaces } from './app.fonts';
 import { Mode } from './app.model';
 import { ModeSwitch } from './common';
 import { GeneralLayout } from './layouts/general-layout';
+import { updateHeadTags } from './app.business';
 
 type GlobalStyleProps = {
   mode: Mode;
@@ -33,6 +34,8 @@ type AppProps = {};
 export const App: React.FC<AppProps> = () => {
   const [mode, setMode] = React.useState<Mode>('light');
   const handleMode = () => setMode(mode === 'light' ? 'dark' : 'light');
+
+  React.useEffect(() => updateHeadTags(mode, theme), [mode]);
 
   return (
     <>
