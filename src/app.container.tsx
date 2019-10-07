@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { ThemeProvider, createGlobalStyle } from './styled-components';
+import { Helmet } from 'react-helmet';
 
 import { theme } from './app.theme';
 import { fontFaces } from './app.fonts';
 import { Mode } from './app.model';
 import { ModeSwitch } from './common';
 import { GeneralLayout } from './layouts/general-layout';
-import { updateHeadTags } from './app.business';
 
 type GlobalStyleProps = {
   mode: Mode;
@@ -35,13 +35,14 @@ export const App: React.FC<AppProps> = () => {
   const [mode, setMode] = React.useState<Mode>('light');
   const handleMode = () => setMode(mode === 'light' ? 'dark' : 'light');
 
-  React.useEffect(() => updateHeadTags(mode, theme), [mode]);
-
   return (
     <>
       <ThemeProvider theme={theme}>
         <>
           <GlobalStyle mode={mode} />
+          <Helmet>
+            <meta name="theme-color" content={theme.palette[mode].background} />
+          </Helmet>
           <GeneralLayout
             HeaderChildren={
               <>
