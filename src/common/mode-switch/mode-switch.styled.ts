@@ -1,41 +1,55 @@
-import styled from '../../styled-components';
+import styled, { css } from '../../styled-components';
 
 import { Mode } from '../../app.model';
-
-export const CheckBoxWrapper = styled.div`
-  position: relative;
-`;
-
-export const CheckBoxLabel = styled.label`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: ${({ theme }) => theme.spacing(5.5)};
-  height: ${({ theme }) => theme.spacing(3)};
-  border-radius: ${({ theme }) => `${theme.spacing(2)}px`};
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
 
 type CheckboxProps = {
   mode: Mode;
 };
 
-export const CheckBox = styled.input<CheckboxProps>`
+export const CheckBoxWrapper = styled.div<CheckboxProps>`
+  position: relative;
+  width: 3.3rem;
+  height: 2.2rem;
+  border-radius: 2rem;
+  border: 0.1em solid ${({ theme: { palette }, mode }) => palette[mode].font};
+  padding: ${({ theme }) => theme.spacing(0.3)}px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const CheckBox = styled.input`
   opacity: 0;
-  & + ${CheckBoxLabel} {
-    background: ${({ mode }) => (mode === 'light' ? '#a5d2ff' : '#2c3e52')};
+  position: absolute;
+  cursor: pointer;
+`;
+
+export const CheckBoxLabel = styled.label<CheckboxProps>`
+  ${({ theme: { palette, spacing }, mode }) => css`
+    width: 100%;
+    height: 100%;
+    background-color: ${palette[mode].font};
+    border-radius: 2em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 ${spacing(0.6)}px;
     &::after {
       content: '';
-      display: block;
       border-radius: 50%;
-      width: ${({ theme }) => theme.spacing(2.3)};
-      height: ${({ theme }) => theme.spacing(2.3)};
-      margin-left: ${({ theme, mode }) => (mode === 'light' ? theme.spacing(0.5) : theme.spacing(1.5))};
-      background: ${({ mode }) => (mode === 'light' ? '#ffcf96' : '#2c3e52')};
-      box-shadow: ${({ mode }) => (mode === 'light' ? `none` : `8px 0 0 0 #fee5b5`)};
-      transition: all 0.2s ease;
-  }
+      width: 1rem;
+      height: 1rem;
+      background-color: ${palette[mode][mode === 'light' ? 'background' : 'font']};
+      transform: translateX(${mode === 'light' ? 0 : `${spacing(2.6)}px`});
+      box-shadow: ${mode === 'light' ? `0px 0px 3px 1px white` : `inset -5px 0px 0px 2px ${palette[mode].background}`};
+      transition: 0.25s;
+    }
+  `}
 `;
+
+/*
+
+      box-shadow: ${mode === 'light' ? `0px 0px 5px 2px white` : `6px 0 0 0 ${theme.palette[mode].background}`};
+*/

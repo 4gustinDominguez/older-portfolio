@@ -1,7 +1,7 @@
 export const theme = {
   typography: {
     fontFamily: `"'Montserrat', sans-serif"`,
-    fontSizes: [0, 12, 14, 16, 20, 24, 32],
+    fontSize: 16,
   },
   palette: {
     light: {

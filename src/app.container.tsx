@@ -13,9 +13,15 @@ type GlobalStyleProps = {
 
 const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
   ${fontFaces}
+  :root{
+    font-size: ${({ theme: { typography } }): string => `${typography.fontSize}`};
+  }
+
   body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
     font-family: ${({ theme: { typography } }): string => typography.fontFamily};
-    font-size: ${({ theme: { typography } }): string => `${typography.fontSizes[1]}`};
     color: ${({ mode, theme: { palette } }): string => palette[mode].font};
     background-color: ${({ mode, theme: { palette } }): string => palette[mode].background}
     transition: color 0.5s ease-out, background 0.5s ease-out
@@ -40,7 +46,7 @@ export const App: React.FC<AppProps> = () => {
                 <ModeSwitch toggleMode={handleMode} mode={mode} />
               </>
             }
-            ContentChildren={<>Hi, I'm frangaliana! Contact me at fjgalianacano@gmail.com</>}
+            ContentChildren={<>Hi, I&apos;m frangaliana! Contact me at fjgalianacano@gmail.com</>}
             FooterChildren={<>Made with love ❤️ by frangaliana © 2019 frangaliana. All Rights Reserved.</>}
           ></GeneralLayout>
         </>
