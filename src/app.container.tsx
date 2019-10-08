@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { ThemeProvider, createGlobalStyle } from './styled-components';
-import { Helmet } from 'react-helmet';
 
 import { theme } from './app.theme';
 import { fontFaces } from './app.fonts';
 import { Mode } from './app.model';
-import { ModeSwitch } from './common';
+import { ModeSwitch, TagsHeader } from './common';
 import { GeneralLayout } from './layouts/general-layout';
 
 type GlobalStyleProps = {
@@ -40,9 +39,7 @@ export const App: React.FC<AppProps> = () => {
       <ThemeProvider theme={theme}>
         <>
           <GlobalStyle mode={mode} />
-          <Helmet>
-            <meta name="theme-color" content={theme.palette[mode].addressBar} />
-          </Helmet>
+          <TagsHeader mode={mode} theme={theme} />
           <GeneralLayout
             HeaderChildren={
               <>
