@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
   body{
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
+    padding: 2em;
     font-family: ${({ theme: { typography } }): string => typography.fontFamily};
     color: ${({ mode, theme: { palette } }): string => palette[mode].font};
     background-color: ${({ mode, theme: { palette } }): string => palette[mode].background}
@@ -41,14 +41,14 @@ export const App: React.FC<AppProps> = () => {
           <GlobalStyle mode={mode} />
           <TagsHeader mode={mode} theme={theme} />
           <GeneralLayout
-            HeaderChildren={
+            Header={
               <>
                 <h1>frangaliana</h1>
                 <ModeSwitch toggleMode={handleMode} mode={mode} />
               </>
             }
-            ContentChildren={<>Hi, I&apos;m frangaliana! Contact me at fjgalianacano@gmail.com</>}
-            FooterChildren={<>Made with love ❤️ by frangaliana © 2019 frangaliana. All Rights Reserved.</>}
+            Content={<>Hi, I&apos;m frangaliana! Contact me at fjgalianacano@gmail.com</>}
+            Footer={<>Made with love ❤️ by frangaliana © 2019 frangaliana. All Rights Reserved.</>}
           ></GeneralLayout>
         </>
       </ThemeProvider>

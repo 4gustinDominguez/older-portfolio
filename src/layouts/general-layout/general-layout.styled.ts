@@ -1,28 +1,26 @@
 import styled from '../../styled-components';
 
 export const GeneralStyled = styled.div`
-  height: 100%
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `;
 
-export const Header = styled.div`
+export const HeaderStyled = styled.header`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 `;
 
-export const Content = styled.div`
+export const ContentStyled = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: ${({ theme }) => theme.spacing(1)};
 `;
 
-export const Footer = styled.div`
+export const FooterStyled = styled.footer`
   display: flex;
   justify-content: center;
   align-items: end;
-  margin-bottom: ${({ theme }) => theme.spacing(1)};
 `;

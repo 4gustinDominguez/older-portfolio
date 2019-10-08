@@ -7,6 +7,7 @@ type CheckboxProps = {
 };
 
 export const CheckBoxWrapper = styled.div<CheckboxProps>`
+  flex-shrink: 0;
   position: relative;
   width: 3.3rem;
   height: 2.2rem;

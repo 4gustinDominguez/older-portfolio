@@ -1,16 +1,16 @@
 import * as React from 'react';
-import { Header, Content, Footer, GeneralStyled } from './general-layout.styled';
+import { HeaderStyled, ContentStyled, FooterStyled, GeneralStyled } from './general-layout.styled';
 
 type GeneralLayoutProps = {
-  HeaderChildren: React.ReactNode;
-  ContentChildren: React.ReactNode;
-  FooterChildren: React.ReactNode;
+  Header: React.ReactNode;
+  Content: React.ReactNode;
+  Footer: React.ReactNode;
 };
 
-export const GeneralLayout: React.FC<GeneralLayoutProps> = ({ HeaderChildren, ContentChildren, FooterChildren }) => (
+export const GeneralLayout: React.FC<GeneralLayoutProps> = ({ Header, Content, Footer }) => (
   <GeneralStyled>
-    <Header>{HeaderChildren}</Header>
-    <Content>{ContentChildren}</Content>
-    <Footer>{FooterChildren}</Footer>
+    <HeaderStyled>{Header}</HeaderStyled>
+    <ContentStyled>{Content}</ContentStyled>
+    <FooterStyled>{Footer}</FooterStyled>
   </GeneralStyled>
 );
