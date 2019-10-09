@@ -6,13 +6,13 @@ export const theme = {
   palette: {
     light: {
       addressBar: '#C5C2D5',
-      font: '#36444F',
-      background: '#e0e0e0',
+      font: '#20252D',
+      background: '#EEF0F2',
     },
     dark: {
       addressBar: '#323133',
-      font: '#C6FCED',
-      background: '#030205',
+      font: '#00BFAA',
+      background: '#20252D',
     },
   },
   spacing: (factor: number): number => factor * 8,
