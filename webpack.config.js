@@ -42,8 +42,12 @@ module.exports = (mode = 'development') => ({
         ],
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|jpg|gif)$/,
         use: ['file-loader'],
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader',
       },
       {
         test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
@@ -66,6 +70,8 @@ module.exports = (mode = 'development') => ({
       template: path.join(basePath, 'src', 'index.html'),
       filename: 'index.html',
     }),
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+    }),
   ],
 });
