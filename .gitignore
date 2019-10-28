@@ -2,7 +2,6 @@
 node_modules
 build
 
-yarn.lock
 yarn-error.log
 junit.xml
 package-lock.json
