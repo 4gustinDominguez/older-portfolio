@@ -24,3 +24,9 @@ jobs:
       - run: # run tests
           name: test
           command: yarn test
+      - run: # run build
+          name: build
+          command: yarn build
+      - run: # run deploy
+          name: deploy
+          command: yarn deploy
