@@ -1,32 +1,29 @@
-version: 2.1
+version: 2
 jobs:
   build:
-    working_directory: ~/portfolio
     docker:
-      - image: circleci/node:10.16.3
+      - image: circleci/node:8
+    working_directory: ~/portfolio
     steps:
       - checkout
-      - run:
-          name: update-yarn
-          command: 'npm install -g yarn@latest'
       - restore_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: install-project
+          name: install-dependencies
           command: yarn install
       - save_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
+          key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
       - run: # run linter
           name: lint
-          command: yarn lint
+          command: yarn run lint
       - run: # run tests
           name: test
-          command: yarn test
+          command: yarn run test
       - run: # run build
           name: build
-          command: yarn build
+          command: yarn run build
       - run: # run deploy
           name: deploy
-          command: yarn deploy
+          command: yarn run deploy
