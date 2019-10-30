@@ -11,7 +11,7 @@ aliases:
   - &restore_yarn_cache
     restore_cache: # 1st step-type
       name: Restoring cache
-      key: dependency-cache-{{ checksum "yarn.lock" }}
+      key: dependency-cache-{{ checksum "package.json" }}
 
   - &create_yarn_dependencies
     run: # 2nd step-type
@@ -21,7 +21,7 @@ aliases:
   - &save_yarn_cache
     save_cache: # 3rd step-type
       name: Saving cache
-      key: dependency-cache-{{ checksum "yarn.lock" }}
+      key: dependency-cache-{{ checksum "package.json" }}
       paths:
         - ./node_modules
 
@@ -42,7 +42,7 @@ aliases:
 jobs:
   setup: # ----- SETUP JOB -----
     docker: *docker
-    working_directory: ~/project
+    working directory: *directory
 
     steps:
       - checkout
@@ -53,7 +53,6 @@ jobs:
 
   lint: # ----- LINT JOB -----
     docker: *docker
-    working_directory: ~/project
 
     steps:
       - *run_lint
