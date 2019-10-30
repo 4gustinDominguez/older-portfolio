@@ -1,34 +1,50 @@
 version: 2
+
 jobs:
-  build:
+  build_app: # ----- job name -----
     docker:
       - image: circleci/node:8
-    working_directory: ~/portfolio
+    working_directory: ~/project
+
     steps:
       - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: install-dependencies
+
+      - restore_cache: # 1st step-type
+          name: restoring cache
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+
+      - run: # 2nd step-type
+          name: installing dependencies
           command: yarn install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+
+      - save_cache: # 3rd step-type
+          name: saving cache
+          key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
-      - run: # run linter
-          name: lint
+
+      - run: # 4th step-type
+          name: running linter
           command: yarn run lint
-      - run: # run tests
-          name: test
+
+      - run: # 5th step-type
+          name: running tests
           command: yarn run test
-      - run: # run build
-          name: build
+
+      - run: # 6th step-type
+          name: running build
           command: yarn run build
-      - run: # run deploy
-          name: deploy
-          command: yarn run deploy
-workflows:
-  version: 2
-  build:
-    jobs:
-      - build
+          when: always
+
+  deploy_app_in_GhPages: # ----- job name -----
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/project
+
+    steps:
+        - run: # 1st step-type
+            name: running deploy
+            command: yarn run deploy
+    requires:
+      - build_app
+
