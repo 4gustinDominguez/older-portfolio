@@ -5,7 +5,7 @@ aliases:
     - image: circleci/openjdk:8-jdk-node-browsers
 
   - &directory
-    - ~/project
+      ~/project
 
   # SETUP aliases
   - &restore_yarn_cache
