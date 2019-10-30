@@ -47,7 +47,7 @@ aliases:
   - &config_user_information
     run:
       name: Configuring user information
-      command:
+      command: |
         git config user.email "fjgalianacano@gmail.com"
         git config user.name "frangaliana"
 
