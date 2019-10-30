@@ -42,7 +42,7 @@ aliases:
 jobs:
   setup: # ----- SETUP JOB -----
     docker: *docker
-    working_directory: *directory
+    working_directory: ~/project
 
     steps:
       - checkout
@@ -53,14 +53,14 @@ jobs:
 
   lint: # ----- LINT JOB -----
     docker: *docker
-    working_directory: *directory
+    working_directory: ~/project
 
     steps:
       - *run_lint
 
   test: # ----- TEST JOB -----
     docker: *docker
-    working_directory: *directory
+    working_directory: ~/project
 
     steps:
       - *run_tests
