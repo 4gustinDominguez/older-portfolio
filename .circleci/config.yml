@@ -16,7 +16,7 @@ aliases:
   - &create_yarn_dependencies
     run: # 2nd step-type
       name: Installing dependencies
-      command: yarn install
+      command: yarn --frozen-lockfile
 
   - &save_yarn_cache
     save_cache: # 3rd step-type
@@ -36,6 +36,18 @@ aliases:
     run:
       name: Running tests
       command: yarn run test
+
+  # BUILD aliases
+  - &build
+    run:
+      name: Building project
+      command: yarn run build
+
+  # DEPLOY aliases
+  - &deploy
+    run:
+      name: Deploying project
+      command: yarn run deploy
 
 
 
@@ -58,6 +70,7 @@ jobs:
     steps:
       - checkout
       - *restore_yarn_cache
+      - *create_yarn_dependencies
       - *run_lint
 
   test: # ----- TEST JOB -----
@@ -67,7 +80,28 @@ jobs:
     steps:
       - checkout
       - *restore_yarn_cache
+      - *create_yarn_dependencies
       - *run_tests
+
+  build: # ----- BUILD JOB -----
+    docker: *docker
+    working directory: *directory
+
+    steps:
+      - checkout
+      - *restore_yarn_cache
+      - *create_yarn_dependencies
+      - *build
+
+  deploy: # ----- DEPLOY JOB -----
+    docker: *docker
+    working directory: *directory
+
+    steps:
+      - checkout
+      - *restore_yarn_cache
+      - *create_yarn_dependencies
+      - *deploy
 
 workflows:
   version: 2
@@ -80,4 +114,26 @@ workflows:
       - test:
           requires:
             - setup
+      - build:
+          requires:
+            - lint
+            - test
+      - deploy:
+          requires:
+            - build
 
+# Schedule deployment at 00:00 (mm:hh) for all days on master branch
+# nightly:
+#    triggers:
+#      - schedule:
+#          cron: "0 0 * * *"
+#          filters:
+#            branches:
+#              only:
+#                - master
+#
+#    jobs:
+#      - setup
+#      - deploy:
+#          requires:
+#            - setup
