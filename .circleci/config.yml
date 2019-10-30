@@ -4,6 +4,9 @@ aliases:
   - &docker
     - image: circleci/openjdk:8-jdk-node-browsers
 
+  - &directory
+    - ~/project
+
   # SETUP aliases
   - &restore_yarn_cache
     restore_cache: # 1st step-type
@@ -39,6 +42,7 @@ aliases:
 jobs:
   setup: # ----- SETUP JOB -----
     docker: *docker
+    working_directory: *directory
 
     steps:
       - checkout
@@ -49,12 +53,14 @@ jobs:
 
   lint: # ----- LINT JOB -----
     docker: *docker
+    working_directory: *directory
 
     steps:
       - *run_lint
 
   test: # ----- TEST JOB -----
     docker: *docker
+    working_directory: *directory
 
     steps:
       - *run_tests
