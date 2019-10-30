@@ -83,7 +83,7 @@ jobs:
       - *create_yarn_dependencies
       - *run_tests
 
-  build: # ----- BUILD JOB -----
+  build_and_deploy: # ----- DEPLOY JOB -----
     docker: *docker
     working directory: *directory
 
@@ -92,15 +92,6 @@ jobs:
       - *restore_yarn_cache
       - *create_yarn_dependencies
       - *build
-
-  deploy: # ----- DEPLOY JOB -----
-    docker: *docker
-    working directory: *directory
-
-    steps:
-      - checkout
-      - *restore_yarn_cache
-      - *create_yarn_dependencies
       - *deploy
 
 workflows:
@@ -114,13 +105,10 @@ workflows:
       - test:
           requires:
             - setup
-      - build:
+      - build_and_deploy:
           requires:
             - lint
             - test
-      - deploy:
-          requires:
-            - build
 
 # Schedule deployment at 00:00 (mm:hh) for all days on master branch
 # nightly:
