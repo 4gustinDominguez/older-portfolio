@@ -1,42 +1,73 @@
 version: 2
 
+aliases:
+  - &docker
+    - image: circleci/openjdk:8-jdk-node-browsers
+
+  # SETUP aliases
+  - &restore_yarn_cache
+    - restore_cache: # 1st step-type
+        name: Restoring cache
+        key: dependency-cache-{{ checksum "yarn.lock" }}
+
+  - &create_yarn_dependencies
+    - run: # 2nd step-type
+        name: Installing dependencies
+        command: yarn install
+
+  - &save_yarn_dependencies
+    - save_cache: # 3rd step-type
+        name: Saving cache
+        key: dependency-cache-{{ checksum "yarn.lock" }}
+        paths:
+          - ./node_modules
+
+  # LINT aliases
+  - &run_lint
+    - run:
+        name: Running linter
+        command: yarn run lint
+
+  # TEST aliases
+  - &run_tests
+      - run:
+          name: Running tests
+          command: yarn run test
+
+
+
 jobs:
-  build: # ----- job name -----
-    docker:
-      - image: circleci/node:8
+  setup: # ----- SETUP JOB -----
+    docker: *docker
     working_directory: ~/project
 
     steps:
       - checkout
+      - *restore_yarn_cache
+      - *create_yarn_dependencies
+      - *save_yarn_cache
 
-      - restore_cache: # 1st step-type
-          name: Restoring cache
-          key: dependency-cache-{{ checksum "yarn.lock" }}
 
-      - run: # 2nd step-type
-          name: Installing dependencies
-          command: yarn install
+  lint: # ----- LINT JOB -----
+    docker: *docker
 
-      - save_cache: # 3rd step-type
-          name: Saving cache
-          key: dependency-cache-{{ checksum "yarn.lock" }}
-          paths:
-            - ./node_modules
+    steps:
+      - *run_lint
 
-      - run: # 4th step-type
-          name: Running linter
-          command: yarn run lint
+  test: # ----- TEST JOB -----
+    docker: *docker
 
-      - run: # 5th step-type
-          name: Running tests
-          command: yarn run test
+    steps:
+      - *run_tests
 
-      - run: # 6th step-type
-          name: Running build
-          command: yarn run build
-          when: always
-
-      - run: # 7st step-type
-          name: Running deploy
-          command: yarn run deploy
+workflows:
+  version: 2
+    jobs:
+      - setup
+      - lint:
+          requires:
+            - setup
+      - test:
+          requires:
+            - setup
 
