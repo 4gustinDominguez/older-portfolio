@@ -43,6 +43,14 @@ aliases:
       name: Building project
       command: yarn run build
 
+  # USER INFORMATION aliases
+  - &config_user_information
+    run:
+      name: Configuring user information
+      command:
+        git config user.email "fjgalianacano@gmail.com"
+        git config user.name "frangaliana"
+
   # DEPLOY aliases
   - &deploy
     run:
@@ -91,6 +99,7 @@ jobs:
       - checkout
       - *restore_yarn_cache
       - *create_yarn_dependencies
+      - *config_user_information
       - *build
       - *deploy
 
