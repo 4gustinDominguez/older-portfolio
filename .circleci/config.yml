@@ -53,15 +53,20 @@ jobs:
 
   lint: # ----- LINT JOB -----
     docker: *docker
+    working directory: *directory
 
     steps:
+      - checkout
+      - *restore_yarn_cache
       - *run_lint
 
   test: # ----- TEST JOB -----
     docker: *docker
-    working_directory: ~/project
+    working directory: *directory
 
     steps:
+      - checkout
+      - *restore_yarn_cache
       - *run_tests
 
 workflows:
