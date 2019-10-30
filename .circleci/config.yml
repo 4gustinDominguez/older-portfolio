@@ -39,7 +39,6 @@ aliases:
 jobs:
   setup: # ----- SETUP JOB -----
     docker: *docker
-    working_directory: ~/project
 
     steps:
       - checkout
