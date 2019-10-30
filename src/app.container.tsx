@@ -47,7 +47,7 @@ export const App: React.FC<AppProps> = () => {
                 <ModeSwitch toggleMode={handleMode} mode={mode} />
               </>
             }
-            Content={<>Hi, I&apos;m frangaliana! Contact me at fjgalianacano@gmail.com</>}
+            Content={<>Hi, I&apos;m frangaliana@fg93! Contact me at fjgalianacano@gmail.com</>}
             Footer={<>Made with love ❤️ by frangaliana © 2019 frangaliana. All Rights Reserved.</>}
           ></GeneralLayout>
         </>

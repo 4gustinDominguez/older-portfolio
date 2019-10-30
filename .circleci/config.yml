@@ -10,41 +10,33 @@ jobs:
       - checkout
 
       - restore_cache: # 1st step-type
-          name: restoring cache
+          name: Restoring cache
           key: dependency-cache-{{ checksum "yarn.lock" }}
 
       - run: # 2nd step-type
-          name: installing dependencies
+          name: Installing dependencies
           command: yarn install
 
       - save_cache: # 3rd step-type
-          name: saving cache
+          name: Saving cache
           key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
 
       - run: # 4th step-type
-          name: running linter
+          name: Running linter
           command: yarn run lint
 
       - run: # 5th step-type
-          name: running tests
+          name: Running tests
           command: yarn run test
 
       - run: # 6th step-type
-          name: running build
+          name: Running build
           command: yarn run build
           when: always
 
-  deploy: # ----- job name -----
-    docker:
-      - image: circleci/node:8
-    working_directory: ~/project
-
-    steps:
-        - run: # 1st step-type
-            name: running deploy
-            command: yarn run deploy
-    requires:
-      - build
+      - run: # 7st step-type
+          name: Running deploy
+          command: yarn run deploy
 
