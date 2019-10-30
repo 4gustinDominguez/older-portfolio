@@ -6,33 +6,33 @@ aliases:
 
   # SETUP aliases
   - &restore_yarn_cache
-    - restore_cache: # 1st step-type
-        name: Restoring cache
-        key: dependency-cache-{{ checksum "yarn.lock" }}
+    restore_cache: # 1st step-type
+      name: Restoring cache
+      key: dependency-cache-{{ checksum "yarn.lock" }}
 
   - &create_yarn_dependencies
-    - run: # 2nd step-type
-        name: Installing dependencies
-        command: yarn install
+    run: # 2nd step-type
+      name: Installing dependencies
+      command: yarn install
 
   - &save_yarn_cache
-    - save_cache: # 3rd step-type
-        name: Saving cache
-        key: dependency-cache-{{ checksum "yarn.lock" }}
-        paths:
-          - ./node_modules
+    save_cache: # 3rd step-type
+      name: Saving cache
+      key: dependency-cache-{{ checksum "yarn.lock" }}
+      paths:
+        - ./node_modules
 
   # LINT aliases
   - &run_lint
-    - run:
-        name: Running linter
-        command: yarn run lint
+    run:
+      name: Running linter
+      command: yarn run lint
 
   # TEST aliases
   - &run_tests
-      - run:
-          name: Running tests
-          command: yarn run test
+    run:
+      name: Running tests
+      command: yarn run test
 
 
 
