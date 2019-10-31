@@ -4,8 +4,7 @@ aliases:
   - &docker
     - image: circleci/openjdk:8-jdk-node-browsers
 
-  - &directory
-      ~/project
+  - &directory ~/project
 
   # SETUP aliases
   - &restore_yarn_cache
@@ -57,8 +56,6 @@ aliases:
       name: Deploying project
       command: yarn run deploy
 
-
-
 jobs:
   setup: # ----- SETUP JOB -----
     docker: *docker
@@ -69,7 +66,6 @@ jobs:
       - *restore_yarn_cache
       - *create_yarn_dependencies
       - *save_yarn_cache
-
 
   lint: # ----- LINT JOB -----
     docker: *docker
@@ -107,30 +103,20 @@ workflows:
   version: 2
   stable:
     jobs:
-      - setup:
-          filters:
-            branches:
-              only:
-                - master
+      - setup
+
       - lint:
           requires:
             - setup
-          filters:
-            branches:
-              only:
-                - master
+
       - test:
           requires:
             - setup
-          filters:
-            branches:
-              only:
-                - master
 
   nightly:
     triggers:
       - schedule:
-          cron: "0 0 * * *"
+          cron: '0 0 * * *'
           filters:
             branches:
               only:
