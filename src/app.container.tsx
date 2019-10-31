@@ -3,9 +3,15 @@ import { ThemeProvider, createGlobalStyle } from './styled-components';
 
 import { theme } from './app.theme';
 import { fontFaces } from './app.fonts';
-import { Mode } from './app.model';
-import { ModeSwitch, TagsHeader } from './common';
+
 import { GeneralLayout } from './layouts/general-layout';
+import { Mode, SvgFile } from './app.model';
+import { ModeSwitch, TagsHeader, SVGButton } from './common';
+
+import SocialNetworkContainer from './layouts/inline-layout';
+import linkedinIcon from './assets/images/linkedin.svg';
+import githubIcon from './assets/images/github.svg';
+import stackoverflowIcon from './assets/images/stackoverflow.svg';
 
 type GlobalStyleProps = {
   mode: Mode;
@@ -34,6 +40,24 @@ export const App: React.FC<AppProps> = () => {
   const [mode, setMode] = React.useState<Mode>('light');
   const handleMode = () => setMode(mode === 'light' ? 'dark' : 'light');
 
+  const highlightedSocialNetworks: SvgFile[] = [
+    {
+      title: 'Linkedin',
+      icon: linkedinIcon,
+      url: 'https://es.linkedin.com/in/frangaliana',
+    },
+    {
+      title: 'Github',
+      icon: githubIcon,
+      url: 'https://github.com/frangaliana',
+    },
+    {
+      title: 'StackOverflow',
+      icon: stackoverflowIcon,
+      url: 'https://stackoverflow.com/users/8534267/fg93',
+    },
+  ];
+
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -44,6 +68,19 @@ export const App: React.FC<AppProps> = () => {
             Header={
               <>
                 <h1>frangaliana</h1>
+                <SocialNetworkContainer>
+                  {highlightedSocialNetworks &&
+                    highlightedSocialNetworks.map(({ title, icon, url }, index) => (
+                      <SVGButton
+                        key={`${title}-${index}`}
+                        title={title}
+                        image={icon}
+                        hrefUrl={url}
+                        target={'_blank'}
+                        mode={mode}
+                      />
+                    ))}
+                </SocialNetworkContainer>
                 <ModeSwitch toggleMode={handleMode} mode={mode} />
               </>
             }
