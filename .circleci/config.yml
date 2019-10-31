@@ -103,6 +103,11 @@ jobs:
       - *build
       - *deploy
 
+    filters:
+      branches:
+        only:
+          - master
+
 workflows:
   version: 2
   stable:
