@@ -6,12 +6,8 @@ import { fontFaces } from './app.fonts';
 
 import { GeneralLayout } from './layouts/general-layout';
 import { Mode, SvgFile } from './app.model';
-import { ModeSwitch, TagsHeader, SVGButton } from './common';
-
-import SocialNetworkContainer from './layouts/inline-layout';
-import linkedinIcon from './assets/images/linkedin.svg';
-import githubIcon from './assets/images/github.svg';
-import stackoverflowIcon from './assets/images/stackoverflow.svg';
+import { TagsHeader } from './common';
+import { Header } from './pods/header/header.component';
 
 type GlobalStyleProps = {
   mode: Mode;
@@ -40,24 +36,6 @@ export const App: React.FC<AppProps> = () => {
   const [mode, setMode] = React.useState<Mode>('light');
   const handleMode = () => setMode(mode === 'light' ? 'dark' : 'light');
 
-  const highlightedSocialNetworks: SvgFile[] = [
-    {
-      title: 'Linkedin',
-      icon: linkedinIcon,
-      url: 'https://es.linkedin.com/in/frangaliana',
-    },
-    {
-      title: 'Github',
-      icon: githubIcon,
-      url: 'https://github.com/frangaliana',
-    },
-    {
-      title: 'StackOverflow',
-      icon: stackoverflowIcon,
-      url: 'https://stackoverflow.com/users/8534267/fg93',
-    },
-  ];
-
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -65,26 +43,8 @@ export const App: React.FC<AppProps> = () => {
           <GlobalStyle mode={mode} />
           <TagsHeader mode={mode} theme={theme} />
           <GeneralLayout
-            Header={
-              <>
-                <h1>frangaliana</h1>
-                <SocialNetworkContainer>
-                  {highlightedSocialNetworks &&
-                    highlightedSocialNetworks.map(({ title, icon, url }, index) => (
-                      <SVGButton
-                        key={`${title}-${index}`}
-                        title={title}
-                        image={icon}
-                        hrefUrl={url}
-                        target={'_blank'}
-                        mode={mode}
-                      />
-                    ))}
-                </SocialNetworkContainer>
-                <ModeSwitch toggleMode={handleMode} mode={mode} />
-              </>
-            }
-            Content={<>Hi, I&apos;m frangaliana@fg93! Contact me at fjgalianacano@gmail.com</>}
+            Header={<Header mode={mode} handleMode={handleMode} />}
+            Content={<>Hi, I&apos;m frangaliana! Contact me at fjgalianacano@gmail.com</>}
             Footer={<>Made with love ❤️ by frangaliana © 2019 frangaliana. All Rights Reserved.</>}
           ></GeneralLayout>
         </>

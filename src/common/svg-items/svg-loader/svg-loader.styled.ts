@@ -9,5 +9,6 @@ type SVGStyledProps = {
 export const SVGStyled = styled(SVG)<SVGStyledProps>`
   ${({ theme: { palette }, mode }) => css`
     fill: ${palette[mode].font};
+    transition: fill 0.5s ease-out, background 0.5s ease-out;
   `}
 `;
