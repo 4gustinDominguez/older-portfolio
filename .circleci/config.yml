@@ -107,7 +107,7 @@ workflows:
   version: 2
   stable:
     jobs:
-      - setup
+      - setup:
           filters:
             branches:
               only:
