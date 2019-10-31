@@ -108,12 +108,24 @@ workflows:
   stable:
     jobs:
       - setup
+          filters:
+            branches:
+              only:
+                - master
       - lint:
           requires:
             - setup
+          filters:
+            branches:
+              only:
+                - master
       - test:
           requires:
             - setup
+          filters:
+            branches:
+              only:
+                - master
 
   nightly:
     triggers:
