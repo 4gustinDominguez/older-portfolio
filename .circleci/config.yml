@@ -103,14 +103,32 @@ jobs:
       - *build
       - *deploy
 
+workflows:
+  version: 2
+  stable:
+    jobs:
+      - setup
+      - lint:
+          requires:
+            - setup
+      - test:
+          requires:
+            - setup
+
     filters:
       branches:
         only:
           - master
 
-workflows:
-  version: 2
-  stable:
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+                only:
+                  - master
+
     jobs:
       - setup
       - lint:
@@ -123,19 +141,3 @@ workflows:
           requires:
             - lint
             - test
-
-# Schedule deployment at 00:00 (mm:hh) for all days on master branch
-# nightly:
-#    triggers:
-#      - schedule:
-#          cron: "0 0 * * *"
-#          filters:
-#            branches:
-#              only:
-#                - master
-#
-#    jobs:
-#      - setup
-#      - deploy:
-#          requires:
-#            - setup
