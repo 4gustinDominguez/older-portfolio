@@ -7,8 +7,8 @@ type SVGButtonProps = SVGLoaderProps & {
   target?: string;
 };
 
-export const SVGButton: React.FC<SVGButtonProps> = ({ title, hrefUrl, image, target, mode, className }) => (
+export const SVGButton: React.FC<SVGButtonProps> = ({ hrefUrl, image, target, mode, className }) => (
   <SVGButtonContainer href={hrefUrl} target={target}>
-    <SVGLoader className={className} title={title} image={image} mode={mode} />
+    <SVGLoader className={className} image={image} mode={mode} />
   </SVGButtonContainer>
 );

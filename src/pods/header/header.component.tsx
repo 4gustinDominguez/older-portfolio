@@ -44,14 +44,7 @@ export const Header: React.FC<HeaderProps> = ({ handleMode, mode }) => {
         <SocialNetworkContainer>
           {highlightedSocialNetworks &&
             highlightedSocialNetworks.map(({ title, icon, url }, index) => (
-              <SVGButton
-                key={`${title}-${index}`}
-                title={title}
-                image={icon}
-                hrefUrl={url}
-                target={'_blank'}
-                mode={mode}
-              />
+              <SVGButton key={`${title}-${index}`} image={icon} hrefUrl={url} target={'_blank'} mode={mode} />
             ))}
         </SocialNetworkContainer>
       </TitleContainer>
