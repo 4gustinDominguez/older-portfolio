@@ -3,9 +3,11 @@ import { ThemeProvider, createGlobalStyle } from './styled-components';
 
 import { theme } from './app.theme';
 import { fontFaces } from './app.fonts';
-import { Mode } from './app.model';
-import { ModeSwitch, TagsHeader } from './common';
+
 import { GeneralLayout } from './layouts/general-layout';
+import { Mode, SvgFile } from './app.model';
+import { TagsHeader } from './common';
+import { Header } from './pods/header/header.component';
 
 type GlobalStyleProps = {
   mode: Mode;
@@ -41,13 +43,8 @@ export const App: React.FC<AppProps> = () => {
           <GlobalStyle mode={mode} />
           <TagsHeader mode={mode} theme={theme} />
           <GeneralLayout
-            Header={
-              <>
-                <h1>frangaliana</h1>
-                <ModeSwitch toggleMode={handleMode} mode={mode} />
-              </>
-            }
-            Content={<>Hi, I&apos;m frangaliana@fg93! Contact me at fjgalianacano@gmail.com</>}
+            Header={<Header mode={mode} handleMode={handleMode} />}
+            Content={<>Hi, I&apos;m frangaliana! Contact me at fjgalianacano@gmail.com</>}
             Footer={<>Made with love ❤️ by frangaliana © 2019 frangaliana. All Rights Reserved.</>}
           ></GeneralLayout>
         </>
