@@ -2,7 +2,7 @@ import styled from '../../styled-components';
 
 export const TitleContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+
+  padding: 0 2em;
 `;

@@ -7,11 +7,13 @@ export const theme = {
     light: {
       addressBar: '#C5C2D5',
       font: '#20252D',
+      highlighted: '#FFFFFF',
       background: '#EEF0F2',
     },
     dark: {
       addressBar: '#323133',
       font: '#00BFAA',
+      highlighted: '#FFFFFF',
       background: '#20252D',
     },
   },

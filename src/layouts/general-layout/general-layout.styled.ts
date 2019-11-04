@@ -20,6 +20,8 @@ export const ContentStyled = styled.section`
 `;
 
 export const FooterStyled = styled.footer`
+  margin-bottom: 1em;
+
   display: flex;
   justify-content: center;
   align-items: end;

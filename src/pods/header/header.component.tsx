@@ -2,14 +2,13 @@ import * as React from 'react';
 
 import SocialNetworkContainer from '../../layouts/inline-layout';
 
-import { SvgFile, Mode } from '../../app.model';
-import { ModeSwitch, SVGButton } from '../../common';
+import { Mode } from '../../app.model';
 
-import linkedinIcon from '../../assets/images/linkedin.svg';
-import githubIcon from '../../assets/images/github.svg';
-import stackoverflowIcon from '../../assets/images/stackoverflow.svg';
 import { Title } from '../../common/styled-fonts';
 import { TitleContainer } from './header.styled';
+
+import { NavigationBar, ModeSwitch } from '../../common';
+import { createHighlightedSocialNetworks, createCategories } from './header.business';
 
 type HeaderProps = {
   handleMode: () => void;
@@ -19,36 +18,24 @@ type HeaderProps = {
 export const Header: React.FC<HeaderProps> = ({ handleMode, mode }) => {
   const mainTitle = 'frangaliana';
 
-  const highlightedSocialNetworks: SvgFile[] = [
-    {
-      title: 'Linkedin',
-      icon: linkedinIcon,
-      url: 'https://es.linkedin.com/in/frangaliana',
-    },
-    {
-      title: 'Github',
-      icon: githubIcon,
-      url: 'https://github.com/frangaliana',
-    },
-    {
-      title: 'StackOverflow',
-      icon: stackoverflowIcon,
-      url: 'https://stackoverflow.com/users/8534267/fg93',
-    },
-  ];
+  const categories = createCategories();
+  //const highlightedSocialNetworks = createHighlightedSocialNetworks();
 
   return (
     <>
       <TitleContainer>
         <Title>{mainTitle}</Title>
-        <SocialNetworkContainer>
-          {highlightedSocialNetworks &&
-            highlightedSocialNetworks.map(({ title, icon, url }, index) => (
-              <SVGButton key={`${title}-${index}`} image={icon} hrefUrl={url} target={'_blank'} mode={mode} />
-            ))}
-        </SocialNetworkContainer>
+        {/*
+            <SocialNetworkContainer>
+              {highlightedSocialNetworks &&
+                highlightedSocialNetworks.map(({ title, icon, url }, index) => (
+                  <IconButton key={`${title}-${index}`} imageSrc={icon} url={url} target={'_blank'} mode={mode} />
+                ))}
+            </SocialNetworkContainer>
+        */}
+        <ModeSwitch mode={mode} toggleMode={handleMode} />
       </TitleContainer>
-      <ModeSwitch toggleMode={handleMode} mode={mode} />
+      <NavigationBar categories={categories} mode={mode} />
     </>
   );
 };
