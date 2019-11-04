@@ -22,6 +22,7 @@ const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
   body{
     box-sizing: border-box;
     margin: 0;
+    padding: ${({ theme: { spacing } }) => `0 0 ${spacing(2)}px ${spacing(2)}px`}
     font-family: ${({ theme: { typography } }): string => typography.fontFamily};
     color: ${({ mode, theme: { palette } }): string => palette[mode].font};
     background-color: ${({ mode, theme: { palette } }): string => palette[mode].background}
