@@ -5,9 +5,9 @@ import { theme } from './app.theme';
 import { fontFaces } from './app.fonts';
 
 import { GeneralLayout } from './layouts/general-layout';
-import { Mode, SvgFile } from './app.model';
+import { Mode } from './app.model';
 import { TagsHeader } from './common';
-import { Header } from './pods/header/header.component';
+import { Header } from './pods';
 
 type GlobalStyleProps = {
   mode: Mode;
@@ -22,7 +22,6 @@ const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
   body{
     box-sizing: border-box;
     margin: 0;
-    padding: 2em;
     font-family: ${({ theme: { typography } }): string => typography.fontFamily};
     color: ${({ mode, theme: { palette } }): string => palette[mode].font};
     background-color: ${({ mode, theme: { palette } }): string => palette[mode].background}

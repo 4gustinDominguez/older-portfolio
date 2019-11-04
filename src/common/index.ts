@@ -1,4 +1,6 @@
 export { TagsHeader } from './tags-header';
 
+export { NavigationBar } from './navigation-bar';
+
 export { ModeSwitch } from './mode-switch';
-export { SVGLoader, SVGButton } from './svg-items';
+export { Icon } from './icon';
