@@ -15,7 +15,7 @@ module.exports = (mode = 'development') => ({
   devtool: mode === 'development' ? 'inline-source-map' : 'eval-source-map',
   devServer: {
     port: 4000,
-    contentBase: path.join(basePath, 'build'),
+    contentBase: path.join(basePath, 'docs'),
     open: true,
     compress: true,
     watchContentBase: true,
