@@ -103,7 +103,7 @@ workflows:
   version: 2
   stable:
     jobs:
-      - setup
+      - setup:
           branches:
             ignore:
               - gh-pages
