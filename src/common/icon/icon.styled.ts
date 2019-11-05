@@ -7,7 +7,7 @@ type IconStyledProps = {
 };
 
 export const IconStyled = styled(SVG)<IconStyledProps>`
-  fill: ${({ theme: { palette }, mode }) => palette[mode].secondary}
+  fill: ${({ theme: { palette }, mode }) => palette[mode].text}
 
   &:hover {
     fill: ${({ theme: { palette }, mode }) => palette[mode].highlighted} ;

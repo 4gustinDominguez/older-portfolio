@@ -5,47 +5,23 @@ export const theme = {
   },
   palette: {
     light: {
-      primary: '',
-      secondary: '',
-      text: '',
-      highlighted: '',
-      background: '',
-      hoveredBackground: '',
+      primary: '#6772E5',
+      secondary: '#000000',
+      text: '#525F7F',
+      highlighted: '#8898aa',
+      background: '#F7F8FC',
+      hoveredBackground: '#EDEFF8',
     },
     dark: {
-      primary: '',
-      secondary: '',
-      text: '',
-      highlighted: '',
-      background: '',
-      hoveredBackground: '',
+      primary: '#00BFAA',
+      secondary: '#EDEFF8',
+      text: '#8898aa',
+      highlighted: '#F7F8FC',
+      background: '#2A303B',
+      hoveredBackground: '#242A33',
     },
   },
   spacing: (factor: number): number => factor * 8,
 };
 
 export type Theme = typeof theme;
-
-/*
-
-  light: {
-        dominantColor: '#0F1E26',
-        primaryAccent: '#5589fe',
-        secondaryAccent: '#A1BDFF',
-        addressBar: '#EDEFF8',
-        highlighted: '#5589fe',
-        background: '#F7F8FC',
-        font: '#0F1E26',
-      },
-  dark: {
-    dominantColor: '#353459',
-    primaryAccent: '#53518C',
-    secondaryAccent: '#C0BFD9',
-
-    addressBar: '#242A33',
-    font: '#00BFAA',
-    highlighted: '#FFFFFF',
-    background: '#2A303B',
-  },
-
-*/
