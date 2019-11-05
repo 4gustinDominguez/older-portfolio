@@ -14,7 +14,7 @@ module.exports = (mode = 'development') => ({
   },
   devtool: mode === 'development' ? 'inline-source-map' : 'eval-source-map',
   devServer: {
-    port: 3000,
+    port: 4000,
     contentBase: path.join(basePath, 'build'),
     open: true,
     compress: true,
@@ -68,6 +68,6 @@ module.exports = (mode = 'development') => ({
     new HtmlWebpackPlugin({
       template: path.join(basePath, 'src', 'index.html'),
       filename: 'index.html',
-    })
+    }),
   ],
 });

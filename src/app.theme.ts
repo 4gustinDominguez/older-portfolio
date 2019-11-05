@@ -1,23 +1,51 @@
 export const theme = {
   typography: {
-    fontFamily: `"'Montserrat', sans-serif"`,
+    fontFamily: `"'Raleway', sans-serif"`,
     fontSize: 16,
   },
   palette: {
     light: {
-      addressBar: '#C5C2D5',
-      font: '#20252D',
-      highlighted: '#FFFFFF',
-      background: '#EEF0F2',
+      primary: '',
+      secondary: '',
+      text: '',
+      highlighted: '',
+      background: '',
+      hoveredBackground: '',
     },
     dark: {
-      addressBar: '#323133',
-      font: '#00BFAA',
-      highlighted: '#FFFFFF',
-      background: '#20252D',
+      primary: '',
+      secondary: '',
+      text: '',
+      highlighted: '',
+      background: '',
+      hoveredBackground: '',
     },
   },
   spacing: (factor: number): number => factor * 8,
 };
 
 export type Theme = typeof theme;
+
+/*
+
+  light: {
+        dominantColor: '#0F1E26',
+        primaryAccent: '#5589fe',
+        secondaryAccent: '#A1BDFF',
+        addressBar: '#EDEFF8',
+        highlighted: '#5589fe',
+        background: '#F7F8FC',
+        font: '#0F1E26',
+      },
+  dark: {
+    dominantColor: '#353459',
+    primaryAccent: '#53518C',
+    secondaryAccent: '#C0BFD9',
+
+    addressBar: '#242A33',
+    font: '#00BFAA',
+    highlighted: '#FFFFFF',
+    background: '#2A303B',
+  },
+
+*/

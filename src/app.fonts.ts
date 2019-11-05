@@ -1,17 +1,26 @@
 import { css } from './styled-components';
 
-import font from './assets/fonts/montserrat-regular.ttf';
-import italicFont from './assets/fonts/montserrat-regularItalic.ttf';
+import lightFont from './assets/fonts/Raleway-light.ttf';
+import mediumFont from './assets/fonts/Raleway-Medium.ttf';
+import blackFont from './assets/fonts/Raleway-Black.ttf';
 
 export const fontFaces = css`
   @font-face {
-    font-family: "'Montserrat', sans-serif";
-    src: url(${font}) format('truetype');
+    font-family: "'Raleway', sans-serif";
     font-style: normal;
+    font-weight: 300;
+    src: url(${lightFont}) format('truetype');
   }
   @font-face {
-    font-family: "'Montserrat', sans-serif";
-    src: url(${italicFont}) format('truetype');
-    font-style: italic;
+    font-family: "'Raleway', sans-serif";
+    font-style: normal;
+    font-weight: 500;
+    src: url(${mediumFont}) format('truetype');
+  }
+  @font-face {
+    font-family: "'Raleway', sans-serif";
+    font-style: normal;
+    font-weight: 900;
+    src: url(${blackFont}) format('truetype');
   }
 `;

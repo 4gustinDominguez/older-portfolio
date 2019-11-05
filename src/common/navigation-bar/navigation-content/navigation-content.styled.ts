@@ -13,7 +13,7 @@ export const NavContentStyled = styled.div<NavContentStyledProps>`
   width: ${({ theme: { spacing } }) => spacing(8)};
   height: auto;
   opacity: ${({ expand }) => (expand ? 1 : 0)};
-  background-color: ${({ theme: { palette }, mode }) => palette[mode].addressBar};
+  background-color: ${({ theme: { palette }, mode }) => palette[mode].hoveredBackground};
 
   z-index: 4;
   padding-top: ${({ theme: { spacing } }) => spacing(8)}px;

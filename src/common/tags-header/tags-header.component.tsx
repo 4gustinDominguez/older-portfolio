@@ -12,7 +12,7 @@ type TagsHeaderProps = {
 export const TagsHeader: React.FC<TagsHeaderProps> = ({ theme: { palette }, mode }) => (
   <>
     <Helmet>
-      <meta name="theme-color" content={palette[mode].addressBar} />
+      <meta name="theme-color" content={palette[mode].background} />
     </Helmet>
   </>
 );
