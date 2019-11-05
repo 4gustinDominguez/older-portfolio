@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import { Mode } from '../../app.model';
 
-import * as VM from '../../models';
-
 import { NavigationBar, ModeSwitch } from '../../common';
 import { createCategories } from './header.business';
 
