@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Mode } from '../../../app.model';
-import { BurgerContainer, BurgerLine } from './Burger-button.styled';
+import { BurgerContainer, BurgerLine } from './burger-button.styled';
 
 type BurgerButtonProps = {
   mode: Mode;
