@@ -1,6 +1,6 @@
 import { css } from './styled-components';
 
-import lightFont from './assets/fonts/Raleway-light.ttf';
+import lightFont from './assets/fonts/Raleway-Light.ttf';
 import mediumFont from './assets/fonts/Raleway-Medium.ttf';
 import blackFont from './assets/fonts/Raleway-Black.ttf';
 

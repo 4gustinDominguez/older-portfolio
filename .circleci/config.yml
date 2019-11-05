@@ -108,15 +108,7 @@ workflows:
       - lint:
           requires:
             - setup
-          filters:
-            branches:
-              ignore:
-                - gh-pages
 
       - test:
           requires:
             - setup
-          filters:
-            branches:
-              ignore:
-                - gh-pages
