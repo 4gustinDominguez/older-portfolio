@@ -11,19 +11,11 @@ aliases:
     restore_cache: # 1st step-type
       name: Restoring cache
       key: dependency-cache-{{ checksum "package.json" }}
-      filters:
-        branches:
-          only:
-            - master
 
   - &create_yarn_dependencies
     run: # 2nd step-type
       name: Installing dependencies
       command: yarn --frozen-lockfile
-      filters:
-        branches:
-          only:
-            - master
 
   - &save_yarn_cache
     save_cache: # 3rd step-type
@@ -31,40 +23,24 @@ aliases:
       key: dependency-cache-{{ checksum "package.json" }}
       paths:
         - ./node_modules
-      filters:
-        branches:
-          only:
-            - master
 
   # LINT aliases
   - &run_lint
     run:
       name: Running linter
       command: yarn run lint
-      filters:
-        branches:
-          only:
-            - master
 
   # TEST aliases
   - &run_tests
     run:
       name: Running tests
       command: yarn run test
-      filters:
-        branches:
-          only:
-            - master
 
   # BUILD aliases
   - &build
     run:
       name: Building project
       command: yarn run build
-      filters:
-        branches:
-          only:
-            - master
 
   # USER INFORMATION aliases
   - &config_user_information
@@ -73,20 +49,12 @@ aliases:
       command: |
         git config user.email "fjgalianacano@gmail.com"
         git config user.name "frangaliana"
-      filters:
-        branches:
-          only:
-            - master
 
   # DEPLOY aliases
   - &deploy
     run:
       name: Deploying project
       command: yarn run deploy
-      filters:
-        branches:
-          only:
-            - master
 
 jobs:
   setup: # ----- SETUP JOB -----
@@ -140,10 +108,18 @@ workflows:
       - lint:
           requires:
             - setup
+          filters:
+            branches:
+              only:
+                - master
 
       - test:
           requires:
             - setup
+            filters:
+              branches:
+                only:
+                  - master
 
   nightly:
     triggers:
