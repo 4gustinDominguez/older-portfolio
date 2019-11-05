@@ -12,7 +12,7 @@ export const CheckBoxWrapper = styled.div<CheckboxProps>`
   width: 3.3rem;
   height: 2.2rem;
   border-radius: 2rem;
-  border: 0.1em solid ${({ theme: { palette }, mode }) => palette[mode].font};
+  border: 0.1em solid ${({ theme: { palette }, mode }) => palette[mode].primary};
   padding: ${({ theme }) => theme.spacing(0.3)}px;
   box-sizing: border-box;
   display: flex;
@@ -31,7 +31,7 @@ export const CheckBoxLabel = styled.label<CheckboxProps>`
   ${({ theme: { palette, spacing }, mode }) => css`
     width: 100%;
     height: 100%;
-    background-color: ${palette[mode].font};
+    background-color: ${palette[mode].primary};
     border-radius: 2em;
     cursor: pointer;
     display: flex;
@@ -44,7 +44,7 @@ export const CheckBoxLabel = styled.label<CheckboxProps>`
       border-radius: 50%;
       width: 1rem;
       height: 1rem;
-      background-color: ${palette[mode][mode === 'light' ? 'background' : 'font']};
+      background-color: ${palette[mode][mode === 'light' ? 'background' : 'primary']};
       transform: translateX(${mode === 'light' ? 0 : `${spacing(2.6)}px`});
       box-shadow: ${mode === 'light' ? `0px 0px 3px 1px white` : `inset -5px 0px 0px 2px ${palette[mode].background}`};
       transition: 0.25s;

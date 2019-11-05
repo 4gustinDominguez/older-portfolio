@@ -7,7 +7,7 @@ import { fontFaces } from './app.fonts';
 import { GeneralLayout } from './layouts/general-layout';
 import { Mode } from './app.model';
 import { TagsHeader } from './common';
-import { Header } from './pods';
+import { Header, Home } from './pods';
 
 type GlobalStyleProps = {
   mode: Mode;
@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
     margin: 0;
     padding: ${({ theme: { spacing } }) => `0 0 ${spacing(2)}px ${spacing(2)}px`}
     font-family: ${({ theme: { typography } }): string => typography.fontFamily};
-    color: ${({ mode, theme: { palette } }): string => palette[mode].font};
+    color: ${({ mode, theme: { palette } }): string => palette[mode].text};
     background-color: ${({ mode, theme: { palette } }): string => palette[mode].background}
     transition: color 0.5s ease-out, background 0.5s ease-out
   }
@@ -44,7 +44,7 @@ export const App: React.FC<AppProps> = () => {
           <TagsHeader mode={mode} theme={theme} />
           <GeneralLayout
             Header={<Header mode={mode} handleMode={handleMode} />}
-            Content={<>Hi, I&apos;m frangaliana! Contact me at fjgalianacano@gmail.com</>}
+            Content={<Home mode={mode} />}
             Footer={<>Made with love ❤️ by frangaliana © 2019 frangaliana. All Rights Reserved.</>}
           ></GeneralLayout>
         </>
