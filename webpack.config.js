@@ -6,7 +6,7 @@ const basePath = __dirname;
 module.exports = (mode = 'development') => ({
   entry: path.join(basePath, 'src', 'index.tsx'),
   output: {
-    path: path.join(basePath, 'build'),
+    path: path.join(basePath, 'docs'),
     filename: '[name].[hash].js',
   },
   resolve: {
