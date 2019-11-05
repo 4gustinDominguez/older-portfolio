@@ -104,31 +104,31 @@ workflows:
   stable:
     jobs:
       - setup
+          branches:
+            ignore:
+              - gh-pages
 
       - lint:
           requires:
             - setup
-          filters:
-            branches:
-              only:
-                - master
+          branches:
+            ignore:
+              - gh-pages
 
       - test:
           requires:
             - setup
-            filters:
-              branches:
-                only:
-                  - master
+          branches:
+            ignore:
+              - gh-pages
 
       - build_and_deploy:
           requires:
             - lint
             - test
-              filters:
-                branches:
-                  only:
-                    - master
+          branches:
+            ignore:
+              - gh-pages
 
   nightly:
     triggers:

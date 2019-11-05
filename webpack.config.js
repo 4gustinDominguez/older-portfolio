@@ -6,7 +6,7 @@ const basePath = __dirname;
 module.exports = (mode = 'development') => ({
   entry: path.join(basePath, 'src', 'index.tsx'),
   output: {
-    path: path.join(basePath, 'docs'),
+    path: path.join(basePath, 'build'),
     filename: '[name].[hash].js',
   },
   resolve: {
@@ -14,8 +14,8 @@ module.exports = (mode = 'development') => ({
   },
   devtool: mode === 'development' ? 'inline-source-map' : 'eval-source-map',
   devServer: {
-    port: 4000,
-    contentBase: path.join(basePath, 'docs'),
+    port: 3000,
+    contentBase: path.join(basePath, 'build'),
     open: true,
     compress: true,
     watchContentBase: true,

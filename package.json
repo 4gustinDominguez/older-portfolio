@@ -11,8 +11,8 @@
     "start": "webpack-dev-server --mode development",
     "lint": "eslint src/*.{js,ts,tsx} --color",
     "test": "echo \"Error: no tests specified\"",
-    "build": "rimraf docs && webpack --mode production",
-    "deploy": "gh-pages -d docs"
+    "build": "rimraf build && webpack --mode production",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
