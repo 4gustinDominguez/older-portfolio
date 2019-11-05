@@ -101,7 +101,7 @@ jobs:
 
 workflows:
   version: 2
-  stable:
+  build:
     jobs:
       - setup:
           filters:
