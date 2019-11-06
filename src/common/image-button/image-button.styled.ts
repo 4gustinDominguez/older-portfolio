@@ -1,11 +1,15 @@
 import styled from '../../styled-components';
-import SVG from 'react-inlinesvg';
 import { Mode } from '../../app.model';
 
-import getInTouch from '../../assets/images/get-in-touch.svg';
+import { PaperPlane } from 'styled-icons/fa-solid/PaperPlane';
 
 type ImageButtonContainerProps = {
   mode: Mode;
+};
+
+type GetInTouchStyledProps = {
+  mode: Mode;
+  hovered: boolean;
 };
 
 export const ImageButtonContainer = styled.a<ImageButtonContainerProps>`
@@ -31,12 +35,8 @@ export const ImageButtonContainer = styled.a<ImageButtonContainerProps>`
   transition: all 0.2s ease-out;
 `;
 
-type IconStyledProps = {
-  mode: Mode;
-  hovered: boolean;
-};
-
-export const ImageButtonIcon = styled(SVG)<IconStyledProps>`
-  fill: ${({ theme: { palette }, mode, hovered }) => palette[mode][hovered ? 'primary' : 'background']};
-  transition: all 0.2s ease-out;
+export const GetInTouchStyled = styled(PaperPlane)<GetInTouchStyledProps>`
+  color: ${({ theme: { palette }, mode, hovered }) => palette[mode][hovered ? 'background' : 'primary']};
+  height: 18px;
+  width: 18px;
 `;
