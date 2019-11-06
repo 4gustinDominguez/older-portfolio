@@ -6,13 +6,13 @@ type TextProps = {
 };
 
 export const Text = styled.p<TextProps>`
-  font-size: ${({ theme: { spacing } }) => spacing(2.2)}px;
+  font-size: ${({ theme: { spacing } }) => spacing(2)}px;
   color: ${({ theme: { palette }, mode }) => palette[mode].text}
   font-weight: 300;
 `;
 
 export const HighlightedText = styled.b<TextProps>`
-  font-size: ${({ theme: { spacing } }) => spacing(2.2)}px;
+  font-size: ${({ theme: { spacing } }) => spacing(2)}px;
   color: ${({ theme: { palette }, mode }) => palette[mode].primary}
   font-weight: 400;
 `;
