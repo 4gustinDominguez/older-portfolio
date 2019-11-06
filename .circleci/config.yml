@@ -6,6 +6,9 @@ aliases:
 
   - &directory ~/project
 
+  - &master_branch master
+  - &deploy_branch gh-pages
+
   # SETUP aliases
   - &restore_yarn_cache
     restore_cache: # 1st step-type
@@ -103,12 +106,24 @@ workflows:
   version: 2
   stable:
     jobs:
-      - setup
+      - setup:
+          filters:
+            branches:
+              ignore:
+                - *deploy_branch
 
       - lint:
           requires:
             - setup
+          filters:
+            branches:
+              ignore:
+                - *deploy_branch
 
       - test:
           requires:
             - setup
+          filters:
+            branches:
+              ignore:
+                - *deploy_branch
