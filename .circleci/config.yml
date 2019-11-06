@@ -127,3 +127,13 @@ workflows:
             branches:
               ignore:
                 - *deploy_branch
+
+      - build:
+          requires:
+            - setup
+            - lint
+            - test
+          filters:
+            branches:
+              only:
+                - *master_branch
