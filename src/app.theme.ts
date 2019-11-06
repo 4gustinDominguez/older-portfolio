@@ -11,6 +11,7 @@ export const theme = {
       highlighted: '#8898aa',
       background: '#F7F8FC',
       hoveredBackground: '#EDEFF8',
+      hoveredLink: '#A2A9EF',
     },
     dark: {
       primary: '#00BFAA',
@@ -19,6 +20,7 @@ export const theme = {
       highlighted: '#F7F8FC',
       background: '#2A303B',
       hoveredBackground: '#242A33',
+      hoveredLink: '#00FEE3',
     },
   },
   spacing: (factor: number): number => factor * 8,

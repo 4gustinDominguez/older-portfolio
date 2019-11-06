@@ -9,10 +9,10 @@ type TagsHeaderProps = {
   theme: Theme;
 };
 
-export const TagsHeader: React.FC<TagsHeaderProps> = ({ theme: { palette }, mode }) => (
+export const TagsHeader: React.FC<TagsHeaderProps> = ({ theme: { palette } }) => (
   <>
     <Helmet>
-      <meta name="theme-color" content={palette[mode].background} />
+      <meta name="theme-color" content={palette['dark'].background} />
     </Helmet>
   </>
 );

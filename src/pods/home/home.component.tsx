@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Mode } from '../../app.model';
 import { HomeContainer } from './home.styled';
-import { Title, Subtitle, Text, HighlightedText } from '../../common/styled-fonts';
+import { Title, Subtitle, Text, LinkText } from '../../common/styled-fonts';
 import { createIntroduction } from './home.business';
 
 type HomeProps = {
@@ -18,7 +18,9 @@ export const Home: React.FC<HomeProps> = ({ mode }) => {
       <Text mode={mode}>
         <>
           {text}
-          <HighlightedText mode={mode}>{hightlightedText}</HighlightedText>
+          <LinkText mode={mode} href="mailto:fjgalianacano@gmail.com?Subject=Hello%20Fran!" target="_top">
+            {hightlightedText}
+          </LinkText>
         </>
       </Text>
     </HomeContainer>
