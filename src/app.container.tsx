@@ -25,8 +25,9 @@ const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
     padding: ${({ theme: { spacing } }) => spacing(2)}px;
     font-family: ${({ theme: { typography } }): string => typography.fontFamily};
     color: ${({ mode, theme: { palette } }): string => palette[mode].text};
-    background-color: ${({ mode, theme: { palette } }): string => palette[mode].background}
-    transition: color 0.5s ease-out, background 0.5s ease-out
+    background-color: ${({ mode, theme: { palette } }): string => palette[mode].background};
+    transition: color ${({ theme: { transition } }) => transition[1]}, background ${({ theme: { transition } }) =>
+  transition[1]};
   }
 `;
 

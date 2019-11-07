@@ -5,11 +5,6 @@ type ImageButtonContainerProps = {
   mode: Mode;
 };
 
-type SvgStyledProps = {
-  mode: Mode;
-  hovered: boolean;
-};
-
 export const ImageButtonContainer = styled.a<ImageButtonContainerProps>`
   background-color: ${({ theme: { palette }, mode }) => palette[mode].background};
   color: ${({ theme: { palette }, mode }) => palette[mode].primary};
@@ -22,19 +17,11 @@ export const ImageButtonContainer = styled.a<ImageButtonContainerProps>`
   width: ${({ theme: { spacing } }) => spacing(19)};
 
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 
   &:hover {
     background-color: ${({ theme: { palette }, mode }) => palette[mode].primary};
     color: ${({ theme: { palette }, mode }) => palette[mode].background};
   }
-
-  transition: all 0.2s ease-out;
-`;
-
-export const SvgStyled = styled.svg<SvgStyledProps>`
-  color: ${({ theme: { palette }, mode, hovered }) => palette[mode][hovered ? 'background' : 'primary']};
-  height: 18px;
-  width: 18px;
 `;

@@ -1,15 +1,14 @@
 import * as React from 'react';
-import { IconProps } from '../../../../app.model';
-import { Icon } from '../../../icon';
+import { IconLink, Mode } from '../../../../app.model';
 import { NavItemStyled } from './navigation-item.styled';
 
-type IconButtonProps = IconProps & {
-  url: string;
-  target?: string;
+type IconButtonProps = {
+  mode: Mode;
+  category: IconLink;
 };
 
-export const NavigationItem: React.FC<IconButtonProps> = ({ mode, url, imageSrc, target }) => (
-  <NavItemStyled href={url} target={target}>
-    <Icon imageSrc={imageSrc} mode={mode} height="18px" width="18px" />
+export const NavigationItem: React.FC<IconButtonProps> = ({ mode, category: { title, Icon, url } }) => (
+  <NavItemStyled href={url} target="_blank">
+    <Icon mode={mode} size={2} color="text" hoveredColor="highlighted" hovered={true} />
   </NavItemStyled>
 );

@@ -24,6 +24,7 @@ export const theme = {
     },
   },
   spacing: (factor: number): number => factor * 8,
+  transition: ['0.2s ease-out', '0.5s ease-out'],
 };
 
 export type Theme = typeof theme;

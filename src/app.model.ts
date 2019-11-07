@@ -1,16 +1,21 @@
-export type Mode = 'dark' | 'light';
+import { Theme } from './app.theme';
 
-export type IconProps = {
-  imageSrc: string;
-  mode?: Mode;
-  height?: string;
-  width?: string;
+export type Mode = 'dark' | 'light';
+export type Color = keyof Theme['palette'][Mode];
+
+export type SvgIconProps = {
+  mode: Mode;
+  color: Color;
+  hovered?: boolean;
+  hoveredColor?: Color;
+  size: number;
+  title?: string;
 };
 
 export type IconLink = {
   title: string;
-  icon: string;
   url: string;
+  Icon: React.FunctionComponent<SvgIconProps>;
 };
 
 export type Introduction = {

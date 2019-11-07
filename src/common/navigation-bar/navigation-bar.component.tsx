@@ -1,18 +1,19 @@
 import * as React from 'react';
 
-import { Mode, IconLink } from '../../app.model';
+import { Mode } from '../../app.model';
 
 import { NavigationBarContainer } from './navigation-bar.styled';
 import { BurgerButton } from './burger-button';
 import { NavigationContent } from './navigation-content';
+import { createCategories } from './navigation-bar.business';
 
 type NavigationBarProps = {
-  categories: IconLink[];
   mode: Mode;
 };
 
-export const NavigationBar: React.FC<NavigationBarProps> = ({ mode, categories }) => {
+export const NavigationBar: React.FC<NavigationBarProps> = ({ mode }) => {
   const [expand, setExpand] = React.useState<boolean>(false);
+  const categories = createCategories();
 
   return (
     <NavigationBarContainer>

@@ -18,7 +18,7 @@ export const Home: React.FC<HomeProps> = ({ mode }) => {
       <Title mode={mode}>{title}</Title>
       <Subtitle mode={mode}>{subtitle}</Subtitle>
       <Text mode={mode}>{text}</Text>
-      <ImageButton mode={mode} file={contactLink} />
+      <ImageButton mode={mode} iconLink={contactLink} iconSize={3} />
     </HomeContainer>
   );
 };

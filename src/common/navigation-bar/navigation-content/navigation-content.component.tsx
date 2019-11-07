@@ -12,8 +12,8 @@ type NavigationContentProps = {
 export const NavigationContent: React.FC<NavigationContentProps> = ({ mode, expand, categories }) => {
   return (
     <NavContentStyled mode={mode} expand={expand}>
-      {categories.map(({ title, url, icon }, index) => (
-        <NavigationItem key={`${title}-${index}`} url={url} imageSrc={icon} mode={mode} />
+      {categories.map((category, index) => (
+        <NavigationItem key={`category-${index}`} category={category} mode={mode} />
       ))}
     </NavContentStyled>
   );

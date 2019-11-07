@@ -1,6 +1,5 @@
 import { Introduction, IconLink } from '../../app.model';
-
-import getInTouch from '../../assets/images/get-in-touch.svg';
+import { GetInTouchIcon } from '../../assets/icons';
 
 export const createIntroduction = (): Introduction => ({
   title: 'Fran Galiana',
@@ -9,7 +8,7 @@ export const createIntroduction = (): Introduction => ({
 });
 
 export const createContactLink = (): IconLink => ({
-  icon: getInTouch,
   title: 'Get in touch',
   url: 'mailto:fjgalianacano@gmail.com?Subject=Hello%20Fran!',
+  Icon: GetInTouchIcon,
 });
