@@ -8,6 +8,9 @@ type BurgerButtonProps = {
 };
 
 export const BurgerContainer = styled.div<BurgerButtonProps>`
+  position: fixed;
+  top: 0;
+  right: 0;
   padding: ${({ theme: { spacing } }) => spacing(2)}px;
   width: ${({ theme: { spacing } }) => spacing(4)}px;
   z-index: 5;
