@@ -50,7 +50,6 @@
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "styled-components": "^4.4.0",
-    "styled-icons": "^8.6.0"
+    "styled-components": "^4.4.0"
   }
 }

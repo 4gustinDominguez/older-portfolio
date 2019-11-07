@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Mode, IconLink } from '../../app.model';
-import { ImageButtonContainer, GetInTouchStyled } from './image-button.styled';
+import { ImageButtonContainer } from './image-button.styled';
 
 type ImageButtonProps = {
   mode: Mode;
@@ -17,7 +17,6 @@ export const ImageButton: React.FC<ImageButtonProps> = ({ mode, file: { title, i
   return (
     <>
       <ImageButtonContainer href={url} mode={mode} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-        <GetInTouchStyled mode={mode} hovered={hovered} />
         {title}
       </ImageButtonContainer>
     </>

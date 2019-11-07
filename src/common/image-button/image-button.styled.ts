@@ -1,13 +1,11 @@
 import styled from '../../styled-components';
 import { Mode } from '../../app.model';
 
-import { PaperPlane } from 'styled-icons/fa-solid/PaperPlane';
-
 type ImageButtonContainerProps = {
   mode: Mode;
 };
 
-type GetInTouchStyledProps = {
+type SvgStyledProps = {
   mode: Mode;
   hovered: boolean;
 };
@@ -20,11 +18,11 @@ export const ImageButtonContainer = styled.a<ImageButtonContainerProps>`
   font-weight: 500;
   text-decoration: none;
 
-  height: ${({ theme: { spacing } }) => spacing(4)};
+  height: ${({ theme: { spacing } }) => spacing(5)};
   width: ${({ theme: { spacing } }) => spacing(19)};
 
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 
   &:hover {
@@ -35,7 +33,7 @@ export const ImageButtonContainer = styled.a<ImageButtonContainerProps>`
   transition: all 0.2s ease-out;
 `;
 
-export const GetInTouchStyled = styled(PaperPlane)<GetInTouchStyledProps>`
+export const SvgStyled = styled.svg<SvgStyledProps>`
   color: ${({ theme: { palette }, mode, hovered }) => palette[mode][hovered ? 'background' : 'primary']};
   height: 18px;
   width: 18px;
