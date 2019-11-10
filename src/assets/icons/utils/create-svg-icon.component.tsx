@@ -4,10 +4,9 @@ import { SvgIconProps } from '../../../app.model';
 import { SvgStyled } from './create-svg-icon.styled';
 
 export const createSvgIcon = (viewBox: string, path: JSX.Element): React.FC<SvgIconProps> => {
-  const Icon: React.FC<SvgIconProps> = ({ size, mode, color, title = '', hovered = false, hoveredColor }) => (
+  const Icon: React.FC<SvgIconProps> = ({ size, color, title = '', hovered = false, hoveredColor }) => (
     <SvgStyled
       size={size}
-      mode={mode}
       color={color}
       hovered={hovered}
       hoveredColor={hoveredColor}

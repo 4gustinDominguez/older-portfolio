@@ -5,13 +5,13 @@ import { Mode } from '../../app.model';
 import { NavigationBar, ModeSwitch } from '../../common';
 
 type HeaderProps = {
-  handleMode: () => void;
+  toggleMode: () => void;
   mode: Mode;
 };
 
-export const Header: React.FC<HeaderProps> = ({ handleMode, mode }) => (
+export const Header: React.FC<HeaderProps> = ({ toggleMode, mode }) => (
   <>
-    <ModeSwitch mode={mode} toggleMode={handleMode} />
-    <NavigationBar mode={mode} />
+    <ModeSwitch mode={mode} toggleMode={toggleMode} />
+    <NavigationBar />
   </>
 );

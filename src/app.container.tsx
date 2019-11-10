@@ -1,19 +1,16 @@
 import * as React from 'react';
 import { ThemeProvider, createGlobalStyle } from './styled-components';
 
-import { theme } from './app.theme';
+import { lightTheme, darkTheme } from './app.theme';
 import { fontFaces } from './app.fonts';
 
 import { GeneralLayout } from './layouts/general-layout';
-import { Mode } from './app.model';
 import { TagsHeader } from './common';
 import { Header, Home } from './pods';
 
-type GlobalStyleProps = {
-  mode: Mode;
-};
+import { useThemeMode } from './app.hooks';
 
-const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
+const GlobalStyle = createGlobalStyle`
   ${fontFaces}
   :root{
     font-size: ${({ theme: { typography } }): string => `${typography.fontSize}`};
@@ -24,8 +21,8 @@ const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
     margin: 0;
     padding: ${({ theme: { spacing } }) => spacing(2)}px;
     font-family: ${({ theme: { typography } }): string => typography.fontFamily};
-    color: ${({ mode, theme: { palette } }): string => palette[mode].text};
-    background-color: ${({ mode, theme: { palette } }): string => palette[mode].background};
+    color: ${({ theme: { palette } }): string => palette.text};
+    background-color: ${({ theme: { palette } }): string => palette.background};
     transition: color ${({ theme: { transition } }) => transition[1]}, background ${({ theme: { transition } }) =>
   transition[1]};
   }
@@ -34,18 +31,22 @@ const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
 type AppProps = {};
 
 export const App: React.FC<AppProps> = () => {
-  const [mode, setMode] = React.useState<Mode>('light');
-  const handleMode = () => setMode(mode === 'light' ? 'dark' : 'light');
+  const { mode, toggleMode, componentMounted } = useThemeMode();
+  const theme = mode === 'light' ? lightTheme : darkTheme;
+
+  if (!componentMounted) {
+    return <div />;
+  }
 
   return (
     <>
       <ThemeProvider theme={theme}>
         <>
-          <GlobalStyle mode={mode} />
-          <TagsHeader mode={mode} theme={theme} />
+          <GlobalStyle />
+          <TagsHeader theme={theme} />
           <GeneralLayout
-            Header={<Header mode={mode} handleMode={handleMode} />}
-            Content={<Home mode={mode} />}
+            Header={<Header mode={mode} toggleMode={toggleMode} />}
+            Content={<Home />}
             Footer={<>Made with love ❤️ by frangaliana © 2019 frangaliana. All Rights Reserved.</>}
           ></GeneralLayout>
         </>

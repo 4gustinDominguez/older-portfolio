@@ -1,8 +1,6 @@
 import styled from '../../../styled-components';
-import { Mode } from '../../../app.model';
 
 type NavContentStyledProps = {
-  mode: Mode;
   expand: boolean;
 };
 
@@ -13,7 +11,7 @@ export const NavContentStyled = styled.div<NavContentStyledProps>`
   width: ${({ theme: { spacing } }) => spacing(8)};
   height: auto;
   opacity: ${({ expand }) => (expand ? 1 : 0)};
-  background-color: ${({ theme: { palette }, mode }) => palette[mode].hoveredBackground};
+  background-color: ${({ theme: { palette } }) => palette.hoveredBackground};
 
   z-index: 4;
   padding-top: ${({ theme: { spacing } }) => spacing(8)}px;

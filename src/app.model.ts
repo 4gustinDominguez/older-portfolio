@@ -1,10 +1,9 @@
 import { Theme } from './app.theme';
 
 export type Mode = 'dark' | 'light';
-export type Color = keyof Theme['palette'][Mode];
+export type Color = keyof Theme['palette'];
 
 export type SvgIconProps = {
-  mode: Mode;
   color: Color;
   hovered?: boolean;
   hoveredColor?: Color;

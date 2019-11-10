@@ -1,18 +1,13 @@
 import styled from '../../styled-components';
-import { Mode } from '../../app.model';
 
-type TextProps = {
-  mode: Mode;
-};
-
-export const Text = styled.p<TextProps>`
+export const Text = styled.p`
   font-size: ${({ theme: { spacing } }) => spacing(2)}px;
-  color: ${({ theme: { palette }, mode }) => palette[mode].text}
+  color: ${({ theme: { palette } }) => palette.text}
   font-weight: 300;
 `;
 
-export const HighlightedText = styled.b<TextProps>`
+export const HighlightedText = styled.b`
   font-size: ${({ theme: { spacing } }) => spacing(2)}px;
-  color: ${({ theme: { palette }, mode }) => palette[mode].primary}
+  color: ${({ theme: { palette } }) => palette.primary}
   font-weight: 400;
 `;

@@ -12,7 +12,7 @@ export const ModeSwitch: React.FC<ModeSwitchProps> = ({ mode, toggleMode }) => {
 
   return (
     <>
-      <CheckBoxWrapper mode={mode}>
+      <CheckBoxWrapper>
         <CheckBox id="checkbox" type="checkbox" onClick={handleMode} />
         <CheckBoxLabel htmlFor="checkbox" mode={mode}></CheckBoxLabel>
       </CheckBoxWrapper>
