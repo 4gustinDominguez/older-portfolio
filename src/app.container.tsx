@@ -31,12 +31,8 @@ const GlobalStyle = createGlobalStyle`
 type AppProps = {};
 
 export const App: React.FC<AppProps> = () => {
-  const { mode, toggleMode, componentMounted } = useThemeMode();
+  const { mode, toggleMode } = useThemeMode();
   const theme = mode === 'light' ? lightTheme : darkTheme;
-
-  if (!componentMounted) {
-    return <div />;
-  }
 
   return (
     <>

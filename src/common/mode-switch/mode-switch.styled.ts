@@ -46,8 +46,10 @@ export const CheckBoxLabel = styled.label<CheckboxProps>`
       height: 1rem;
       background-color: ${palette[mode === 'light' ? 'background' : 'primary']};
       transform: translateX(${mode === 'light' ? 0 : `${spacing(2.6)}px`});
-      box-shadow: ${mode === 'light' ? `0px 0px 3px 1px white` : `inset -5px 0px 0px 2px ${palette.background}`};
-      transition: 0.25s;
+      box-shadow: ${mode === 'light'
+        ? `0px 0px 3px 1px ${palette.background}`
+        : `inset -5px 0px 0px 2px ${palette.background}`};
+      transition: background-color, transform 0.25s;
     }
   `}
 `;
