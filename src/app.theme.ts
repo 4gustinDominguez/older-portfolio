@@ -32,6 +32,10 @@ export const darkTheme = {
   },
   spacing: (factor: number): number => factor * 8,
   transition: ['0.2s ease-out', '0.5s ease-out'],
+  breakpoints: {
+    mobile: '(min-width: 540px)',
+    tablet: '(min-width: 768px)',
+  },
 };
 
 export type Theme = typeof lightTheme;

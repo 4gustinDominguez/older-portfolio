@@ -4,7 +4,8 @@ export const ImageButtonContainer = styled.a`
   background-color: ${({ theme: { palette } }) => palette.background};
   color: ${({ theme: { palette } }) => palette.primary};
   border: 1px solid ${({ theme: { palette } }) => palette.primary};
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color ${({ theme: { transition } }) => transition[0]},
+    color ${({ theme: { transition } }) => transition[0]};
   font-weight: 500;
   text-decoration: none;
 
