@@ -5,7 +5,7 @@ export const LinkText = styled.a`
   color: ${({ theme: { palette } }) => palette.text}
   text-decoration: none;
 
-  &:hover {
+  &:hover, &:active {
     color: ${({ theme: { palette } }) => palette.primary};
   }
 `;
