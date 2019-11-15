@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const basePath = __dirname;
 
@@ -85,5 +86,15 @@ module.exports = (mode = 'development') => ({
       template: path.join(basePath, 'src', 'index.html'),
       filename: 'index.html',
     }),
+    new CopyWebpackPlugin([
+      {
+        from: `src/assets/localization/en/locales.json`,
+        to: `assets/localization/en/locales.json`,
+      },
+      {
+        from: `src/assets/localization/es/locales.json`,
+        to: `assets/localization/es/locales.json`,
+      },
+    ]),
   ],
 });

@@ -1,14 +1,15 @@
 import { Introduction, IconLink } from '../../app.model';
 import { GetInTouchIcon } from '../../assets/icons';
+import { TKeys } from '../../core/translation';
 
-export const createIntroduction = (): Introduction => ({
-  title: 'Fran Galiana',
-  subtitle: 'I build efficient and high quality websites',
-  text: `I'm a Frontend Engineer based in Alicante, Spain🌴☀️`,
+export const createIntroduction = (tdkIntroduction: TKeys['home']['introduction']): Introduction => ({
+  title: tdkIntroduction.title,
+  subtitle: tdkIntroduction.subtitle,
+  text: tdkIntroduction.text,
 });
 
-export const createContactLink = (): IconLink => ({
-  title: 'Get in touch',
+export const createContactLink = (tdkIntroduction: TKeys['home']['introduction']): IconLink => ({
+  title: tdkIntroduction.contactLinkTitle,
   url: 'mailto:fjgalianacano@gmail.com?Subject=Hello%20Fran!',
   Icon: GetInTouchIcon,
 });

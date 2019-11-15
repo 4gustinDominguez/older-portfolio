@@ -1,12 +1,15 @@
 import * as React from 'react';
-import { ThemeProvider, createGlobalStyle } from './styled-components';
 
+import { ThemeProvider, createGlobalStyle } from './styled-components';
+import { tkeys, defaultLanguage, localesPath } from './core/translation';
+
+import { TranslationProvider, Language } from './providers';
 import { lightTheme, darkTheme } from './app.theme';
 import { fontFaces } from './app.fonts';
 
 import { GeneralLayout } from './layouts/general-layout';
 import { TagsHeader } from './common';
-import { Header, Home } from './pods';
+import { Header, Home, Footer } from './pods';
 
 import { useThemeMode } from './app.hooks';
 
@@ -34,18 +37,30 @@ export const App: React.FC<AppProps> = () => {
   const { mode, toggleMode } = useThemeMode();
   const theme = mode === 'light' ? lightTheme : darkTheme;
 
+  /*
+  const [language, setLanguage] = React.useState<Language>('en');
+  const toggleLanguage = (changed: boolean) => setLanguage(changed ? 'en' : 'es');
+  */
+
   return (
     <>
       <ThemeProvider theme={theme}>
-        <>
-          <GlobalStyle />
-          <TagsHeader theme={theme} />
-          <GeneralLayout
-            Header={<Header mode={mode} toggleMode={toggleMode} />}
-            Content={<Home />}
-            Footer={<>Made with love ❤️ by frangaliana © 2019 frangaliana. All Rights Reserved.</>}
-          ></GeneralLayout>
-        </>
+        <React.Suspense fallback={<>Loading...</>}>
+          <TranslationProvider lang={defaultLanguage} pathToLocales={'assets/localization'} translationKeys={tkeys}>
+            <GlobalStyle />
+            <TagsHeader theme={theme} />
+            <GeneralLayout
+              Header={<Header mode={mode} toggleMode={toggleMode} />}
+              Content={<Home />}
+              Footer={
+                <>
+                  {/*<button onClick={() => toggleLanguage(language === 'en' ? false : true)}>Idioma</button>*/}
+                  <Footer />
+                </>
+              }
+            ></GeneralLayout>
+          </TranslationProvider>
+        </React.Suspense>
       </ThemeProvider>
     </>
   );

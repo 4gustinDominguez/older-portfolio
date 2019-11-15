@@ -8,43 +8,44 @@ import {
   GithubIcon,
   StackoverflowIcon,
 } from '../../assets/icons';
+import { TKeys } from '../../core/translation';
 
-export const createHighlightedSocialNetworks = (): IconLink[] => [
+export const createSocialNetworks = (tdkSocialNetworks: TKeys['header']['socialNetworks']): IconLink[] => [
   {
-    title: 'Linkedin',
+    title: tdkSocialNetworks.linkedinTitle,
     Icon: LinkedInIcon,
     url: 'https://es.linkedin.com/in/frangaliana',
   },
   {
-    title: 'Github',
+    title: tdkSocialNetworks.githubTitle,
     Icon: GithubIcon,
     url: 'https://github.com/frangaliana',
   },
   {
-    title: 'StackOverflow',
+    title: tdkSocialNetworks.stackoverflowTitle,
     Icon: StackoverflowIcon,
     url: 'https://stackoverflow.com/users/8534267/fg93',
   },
 ];
 
-export const createCategories = (): IconLink[] => [
+export const createCategories = (tdkCategories: TKeys['header']['categories']): IconLink[] => [
   {
-    title: 'About',
+    title: tdkCategories.aboutTitle,
     Icon: AboutIcon,
     url: '',
   },
   {
-    title: 'Skills',
+    title: tdkCategories.skillsTitle,
     Icon: SkillsIcon,
     url: '',
   },
   {
-    title: 'Work',
+    title: tdkCategories.workTitle,
     Icon: WorkIcon,
     url: '',
   },
   {
-    title: 'Contact',
+    title: tdkCategories.contactTitle,
     Icon: ContactIcon,
     url: '',
   },

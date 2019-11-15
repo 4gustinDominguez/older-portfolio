@@ -4,6 +4,8 @@ import { Mode } from '../../app.model';
 
 import { NavigationList, NavigationBar, ModeSwitch } from '../../common';
 import { createCategories } from './header.business';
+import { useTranslatedKeys } from '../../providers';
+import { tkeys } from '../../core/translation';
 
 type HeaderProps = {
   toggleMode: () => void;
@@ -11,7 +13,8 @@ type HeaderProps = {
 };
 
 export const Header: React.FC<HeaderProps> = ({ toggleMode, mode }) => {
-  const categories = createCategories();
+  const [tdkCategories, tdkSocialNetworks] = useTranslatedKeys(tkeys.header.categories, tkeys.header.socialNetworks);
+  const categories = createCategories(tdkCategories);
 
   return (
     <>
