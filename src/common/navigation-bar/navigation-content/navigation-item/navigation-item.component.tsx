@@ -8,6 +8,6 @@ type IconButtonProps = {
 
 export const NavigationItem: React.FC<IconButtonProps> = ({ category: { title, Icon, url } }) => (
   <NavItemStyled href={url} target="_blank">
-    <Icon size={2} color="text" hoveredColor="highlighted" hovered={true} />
+    <Icon size={2} color="text" hoveredColor="primary" hovered={true} />
   </NavItemStyled>
 );

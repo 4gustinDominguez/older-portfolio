@@ -11,7 +11,7 @@ export const NavContentStyled = styled.div<NavContentStyledProps>`
   width: ${({ theme: { spacing } }) => spacing(8)};
   height: auto;
   opacity: ${({ expand }) => (expand ? 1 : 0)};
-  background-color: ${({ theme: { palette } }) => palette.hoveredBackground};
+  background-color: ${({ theme: { palette } }) => palette.navigationBackground};
 
   z-index: 4;
   padding-top: ${({ theme: { spacing } }) => spacing(8)}px;

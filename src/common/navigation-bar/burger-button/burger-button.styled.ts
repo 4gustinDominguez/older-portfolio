@@ -34,7 +34,7 @@ export const BurgerContainer = styled.div<BurgerButtonProps>`
   }
 
   &:hover {
-    background-color: ${({ theme: { palette } }) => palette.hoveredBackground};
+    background-color: ${({ theme: { palette } }) => palette.navigationBackground};
   }
 `;
 
