@@ -21,9 +21,7 @@ export const CheckBoxWrapper = styled.div`
 `;
 
 export const CheckBox = styled.input`
-  opacity: 0;
-  position: absolute;
-  cursor: pointer;
+  display: none;
   -webkit-tap-highlight-color: transparent;
 `;
 

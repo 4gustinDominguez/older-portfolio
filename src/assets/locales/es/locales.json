@@ -10,6 +10,16 @@
       "linkedinTitle": "LinkedIn",
       "githubTitle": "Github",
       "stackoverflowTitle": "StackOverflow"
+    },
+    "supportedLanguages": {
+      "en": {
+        "code": "EN",
+        "description": "EN - Inglés"
+      },
+      "es": {
+        "code": "EN",
+        "description": "ES - Español"
+      }
     }
   },
   "home": {

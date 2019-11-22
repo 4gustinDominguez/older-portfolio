@@ -13,6 +13,16 @@ const keyStructure = {
       githubTitle: null,
       stackoverflowTitle: null,
     },
+    supportedLanguages: {
+      en: {
+        code: null,
+        description: null,
+      },
+      es: {
+        code: null,
+        description: null,
+      },
+    },
   },
   home: {
     introduction: {

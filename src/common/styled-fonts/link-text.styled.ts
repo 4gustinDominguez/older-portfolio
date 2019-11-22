@@ -8,4 +8,6 @@ export const LinkText = styled.a`
   &:hover, &:active {
     color: ${({ theme: { palette } }) => palette.primary};
   }
+
+  transition: color ${({ theme: { transition } }) => transition[1]};
 `;

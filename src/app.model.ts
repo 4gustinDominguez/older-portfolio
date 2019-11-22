@@ -17,6 +17,11 @@ export type IconLink = {
   Icon: React.FunctionComponent<SvgIconProps>;
 };
 
+export type DropdownItem = {
+  code: string;
+  description: string;
+};
+
 export type Introduction = {
   title: string;
   subtitle: string;

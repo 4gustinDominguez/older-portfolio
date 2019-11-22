@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { Mode } from './app.model';
 
-export const useThemeMode = (): { mode: Mode; toggleMode: () => void; componentMounted: boolean } => {
+export const useThemeMode = (): { mode: Mode; toggleMode: () => void } => {
   const [mode, setMode] = React.useState<Mode>('light');
-  const [componentMounted, setComponentMounted] = React.useState<boolean>(false);
 
   const setTheme = (theme: Mode) => {
     window.localStorage.setItem('mode', theme);
@@ -18,8 +17,6 @@ export const useThemeMode = (): { mode: Mode; toggleMode: () => void; componentM
     } else {
       setTheme('light');
     }
-
-    setComponentMounted(true);
   }, []);
 
   const toggleMode = () => {
@@ -30,5 +27,5 @@ export const useThemeMode = (): { mode: Mode; toggleMode: () => void; componentM
     }
   };
 
-  return { mode, toggleMode, componentMounted };
+  return { mode, toggleMode };
 };
