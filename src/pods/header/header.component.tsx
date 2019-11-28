@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Mode } from '../../app.model';
 
-import { NavigationList, NavigationBar, ModeSwitch } from '../../common';
+import { NavBarList, NavBarExpandable, ModeSwitch } from '../../common';
 import { tkeys } from '../../core/translation';
 import { useTranslatedKeys } from '../../providers';
 
@@ -26,8 +26,8 @@ export const Header: React.FC<HeaderProps> = ({ toggleMode, mode }) => {
   return (
     <>
       <ModeSwitch mode={mode} toggleMode={toggleMode} />
-      <NavigationList categories={categories} />
-      <NavigationBar categories={categories} />
+      <NavBarList categories={categories} />
+      <NavBarExpandable categories={categories} />
     </>
   );
 };
