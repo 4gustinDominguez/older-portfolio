@@ -4,6 +4,7 @@ export const SelectedItemContainer = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
+  user-select: none;
 `;
 
 type ArrowProps = {
