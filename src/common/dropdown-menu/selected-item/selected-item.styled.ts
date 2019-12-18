@@ -4,7 +4,7 @@ export const SelectedItemContainer = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 `;
 
 type ArrowProps = {
