@@ -1,6 +1,7 @@
 import { Theme } from './app.theme';
 
 export type Mode = 'dark' | 'light';
+export type Language = 'en' | 'es';
 export type Color = keyof Theme['palette'];
 
 export type SvgIconProps = {

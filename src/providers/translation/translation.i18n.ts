@@ -4,7 +4,7 @@ import i18nBackend from 'i18next-xhr-backend';
 import { Language } from './translation.language';
 import { initReactI18next } from 'react-i18next';
 
-const defaultLanguage: Language = 'es';
+const defaultLanguage: Language = 'en';
 
 export const createI18n = (lang: Language, pathToLocale: string) => {
   const i18nInstance = i18n

@@ -1,33 +1,32 @@
 import * as React from 'react';
 
+import { DropdownItem } from './dropdown-menu.model';
+
 import { DropdownMenuContainer } from './dropdown-menu.styled';
 import { SelectedItem } from './selected-item';
 import { DropdownList } from './dropdown-list';
-
-/*
-{
-  code: "EN",
-  description: "EN - English"
-}
-*/
+import { useExpandContainer } from './dropdown-menu.hook';
 
 type DropdownMenuProps = {
-  items: any;
+  selectedItem: DropdownItem;
+  items: DropdownItem[];
+  toggleItem: (item: string) => void;
 };
 
-export const DropdownMenu: React.FC<DropdownMenuProps> = ({ items }) => {
-  const [expanded, setExpanded] = React.useState(false);
-  const [selectedItem, setSelectedItem] = React.useState(items[0]);
+export const DropdownMenu: React.FC<DropdownMenuProps> = ({ selectedItem, items, toggleItem }) => {
+  const node = React.useRef();
+  const [expanded, setExpanded] = useExpandContainer(node);
 
-  const handleMouseOver = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => setExpanded(true);
-  const handleMouseOut = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => setExpanded(false);
-
-  const handleClick = (value: any) => setSelectedItem(value);
+  const handleClick = () => setExpanded(!expanded);
+  const selectItem = (item: string) => {
+    setExpanded(!expanded);
+    toggleItem(item);
+  };
 
   return (
-    <DropdownMenuContainer onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-      <SelectedItem selectedItem={selectedItem} expanded={expanded} />
-      <DropdownList items={items} handleClick={handleClick} />
+    <DropdownMenuContainer ref={node}>
+      <DropdownList items={items} expanded={expanded} handleClick={selectItem} />
+      <SelectedItem selectedItem={selectedItem} expanded={expanded} toggleExpanded={handleClick} />
     </DropdownMenuContainer>
   );
 };

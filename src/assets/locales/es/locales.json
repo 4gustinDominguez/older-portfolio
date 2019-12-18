@@ -10,16 +10,6 @@
       "linkedinTitle": "LinkedIn",
       "githubTitle": "Github",
       "stackoverflowTitle": "StackOverflow"
-    },
-    "supportedLanguages": {
-      "en": {
-        "code": "EN",
-        "description": "EN - Inglés"
-      },
-      "es": {
-        "code": "EN",
-        "description": "ES - Español"
-      }
     }
   },
   "home": {
@@ -32,5 +22,15 @@
   },
   "footer": {
     "title": "Hecho con amor ❤️ por frangaliana © 2019 frangaliana. Todos los derechos reservados."
+  },
+  "supportedLanguages": {
+    "en": {
+      "code": "en",
+      "description": "EN - Inglés"
+    },
+    "es": {
+      "code": "es",
+      "description": "ES - Español"
+    }
   }
 }

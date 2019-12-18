@@ -1,19 +1,21 @@
 import * as React from 'react';
 import { DropdownListContainer, DropdownItem } from './dropdown-list.styled';
+import { DropdownItem as DropdownItemModel } from '../dropdown-menu.model';
 
 type DropdownListProps = {
-  items: any;
-  handleClick: (item: any) => void;
+  items: DropdownItemModel[];
+  expanded: boolean;
+  handleClick: (item: string) => void;
 };
 
-export const DropdownList: React.FC<DropdownListProps> = ({ items, handleClick }) => {
-  const onClick = (item: any) => (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => handleClick(item);
+export const DropdownList: React.FC<DropdownListProps> = ({ items, expanded, handleClick }) => {
+  const onClick = (item: string) => (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => handleClick(item);
 
   return (
-    <DropdownListContainer>
-      {items.map((item, index) => (
-        <DropdownItem key={`item-${index}`} onClick={onClick(item)}>
-          {item.description}
+    <DropdownListContainer expanded={expanded}>
+      {items.map(({ code, description }, index) => (
+        <DropdownItem key={`item-${index}`} onClick={onClick(code)}>
+          {description}
         </DropdownItem>
       ))}
     </DropdownListContainer>

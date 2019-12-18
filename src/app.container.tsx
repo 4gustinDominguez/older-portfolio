@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { tkeys } from './core/translation';
 
-import { TranslationProvider, ThemeStyledProvider } from './providers';
+import { TranslationProvider, ThemeStyledProvider, Language } from './providers';
 import { lightTheme, darkTheme } from './app.theme';
 
 import { GeneralLayout } from './layouts';
@@ -16,18 +16,16 @@ export const App: React.FC<AppProps> = () => {
   const { mode, toggleMode } = useThemeMode();
   const theme = mode === 'light' ? lightTheme : darkTheme;
 
-  /**
-    const [language, setLanguage] = React.useState<Language>('en');
-    const toggleLanguage = (code: Language) => setLanguage(code);
-  */
+  const [language, setLanguage] = React.useState<Language>('en');
+  const toggleLanguage = (code: Language) => setLanguage(code);
 
   return (
     <ThemeStyledProvider theme={theme}>
-      <TranslationProvider lang={'en'} pathToLocales={'assets/locales'} translationKeys={tkeys}>
+      <TranslationProvider lang={language} pathToLocales={'assets/locales'} translationKeys={tkeys}>
         <GeneralLayout
           Header={<Header mode={mode} toggleMode={toggleMode} />}
           Content={<Home />}
-          Footer={<Footer />}
+          Footer={<Footer language={language} toggleLanguage={toggleLanguage} />}
         ></GeneralLayout>
       </TranslationProvider>
     </ThemeStyledProvider>

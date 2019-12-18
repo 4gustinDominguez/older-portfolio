@@ -14,13 +14,8 @@ type HeaderProps = {
 };
 
 export const Header: React.FC<HeaderProps> = ({ toggleMode, mode }) => {
-  const [tdkLanguages, tdkCategories, tdkSocialNetworks] = useTranslatedKeys(
-    tkeys.header.supportedLanguages,
-    tkeys.header.categories,
-    tkeys.header.socialNetworks
-  );
+  const [tdkCategories, tdkSocialNetworks] = useTranslatedKeys(tkeys.header.categories, tkeys.header.socialNetworks);
 
-  //const languages = createLanguages(tdkLanguages);
   const categories = createCategories(tdkCategories);
 
   return (
