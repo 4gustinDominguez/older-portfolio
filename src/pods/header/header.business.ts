@@ -28,6 +28,19 @@ export const createSocialNetworks = (tdkSocialNetworks: TKeys['header']['socialN
   },
 ];
 
+/*
+export const createLanguages = (tdkLanguages: TKeys["header"]["supportedLanguages"]): DropdownItem[] => [
+  {
+    code: ,
+    description: tdkLanguages.en,
+  },
+  {
+    code: ,
+    description: tdkLanguages.es
+  }
+]
+*/
+
 export const createCategories = (tdkCategories: TKeys['header']['categories']): IconLink[] => [
   {
     title: tdkCategories.aboutTitle,
@@ -47,6 +60,6 @@ export const createCategories = (tdkCategories: TKeys['header']['categories']): 
   {
     title: tdkCategories.contactTitle,
     Icon: ContactIcon,
-    url: '',
+    url: 'mailto:fjgalianacano@gmail.com?Subject=Hello%20Fran!',
   },
 ];

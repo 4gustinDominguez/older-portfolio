@@ -18,7 +18,9 @@ export const Home: React.FC<HomeProps> = props => {
     <HomeContainer>
       <Title>{title}</Title>
       <Subtitle>{subtitle}</Subtitle>
-      <Text>{text}</Text>
+      <Text format={'normal'} lineSpacing={true}>
+        {text}
+      </Text>
       <ImageButton iconLink={contactLink} iconSize={3} />
     </HomeContainer>
   );

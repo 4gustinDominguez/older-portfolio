@@ -25,6 +25,16 @@ const keyStructure = {
   footer: {
     title: null,
   },
+  supportedLanguages: {
+    en: {
+      code: null,
+      description: null,
+    },
+    es: {
+      code: null,
+      description: null,
+    },
+  },
 };
 
 export const tkeys = calculateObjectPath(keyStructure);

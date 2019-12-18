@@ -1,8 +1,6 @@
 export const supportedLanguages = {
-  en: 'English',
-  es: 'Español',
+  en: 'en',
+  es: 'es',
 };
 
 export type Language = keyof typeof supportedLanguages;
-
-export const getLanguageName = (lang: Language): string => supportedLanguages[lang];

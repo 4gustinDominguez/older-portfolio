@@ -1,5 +1,5 @@
 import { TKeys } from '../../core/translation';
 
-export const createFooter = (tdkFooter: TKeys['footer']): { title: string } => ({
-  title: tdkFooter.title,
+export const createFooter = (title: TKeys['footer']['title']): { title: string } => ({
+  title,
 });

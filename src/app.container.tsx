@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { tkeys, defaultLanguage } from './core/translation';
+import { tkeys } from './core/translation';
 
-import { TranslationProvider, ThemeStyledProvider } from './providers';
+import { TranslationProvider, ThemeStyledProvider, Language } from './providers';
 import { lightTheme, darkTheme } from './app.theme';
 
 import { GeneralLayout } from './layouts';
@@ -16,23 +16,16 @@ export const App: React.FC<AppProps> = () => {
   const { mode, toggleMode } = useThemeMode();
   const theme = mode === 'light' ? lightTheme : darkTheme;
 
-  /*
   const [language, setLanguage] = React.useState<Language>('en');
-  const toggleLanguage = (changed: boolean) => setLanguage(changed ? 'en' : 'es');
-  */
+  const toggleLanguage = (code: Language) => setLanguage(code);
 
   return (
     <ThemeStyledProvider theme={theme}>
-      <TranslationProvider lang={defaultLanguage} pathToLocales={'assets/localization'} translationKeys={tkeys}>
+      <TranslationProvider lang={language} pathToLocales={'assets/locales'} translationKeys={tkeys}>
         <GeneralLayout
           Header={<Header mode={mode} toggleMode={toggleMode} />}
           Content={<Home />}
-          Footer={
-            <>
-              {/*<button onClick={() => toggleLanguage(language === 'en' ? false : true)}>Idioma</button>*/}
-              <Footer />
-            </>
-          }
+          Footer={<Footer language={language} toggleLanguage={toggleLanguage} />}
         ></GeneralLayout>
       </TranslationProvider>
     </ThemeStyledProvider>

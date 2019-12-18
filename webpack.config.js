@@ -88,12 +88,12 @@ module.exports = (mode = 'development') => ({
     }),
     new CopyWebpackPlugin([
       {
-        from: `src/assets/localization/en/locales.json`,
-        to: `assets/localization/en/locales.json`,
+        from: `src/assets/locales/en/locales.json`,
+        to: `assets/locales/en/locales.json`,
       },
       {
-        from: `src/assets/localization/es/locales.json`,
-        to: `assets/localization/es/locales.json`,
+        from: `src/assets/locales/es/locales.json`,
+        to: `assets/locales/es/locales.json`,
       },
     ]),
   ],

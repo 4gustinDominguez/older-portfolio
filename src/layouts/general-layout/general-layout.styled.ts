@@ -2,7 +2,7 @@ import styled from '../../styled-components';
 
 export const GeneralStyled = styled.div`
   height: 100%;
-  
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -15,6 +15,7 @@ export const HeaderStyled = styled.header`
 `;
 
 export const ContentStyled = styled.section`
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

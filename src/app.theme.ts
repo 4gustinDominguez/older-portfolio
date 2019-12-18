@@ -13,14 +13,8 @@ export const lightTheme = {
   spacing: (factor: number): number => factor * 8,
   transition: ['0.2s ease-out', '0.5s ease-out'],
   breakpoints: {
-    mobile: {
-      minWidth: '(min-width: 540px)',
-      maxWidth: '(max-width: 540px)',
-    },
-    tablet: {
-      minWidth: '(min-width: 768px)',
-      maxWidth: '(max-width: 768px)',
-    },
+    tablet: '@media (min-width: 768px)',
+    desktop: '@media (min-width: 1024px)',
   },
 };
 
@@ -39,14 +33,8 @@ export const darkTheme = {
   spacing: (factor: number): number => factor * 8,
   transition: ['0.2s ease-out', '0.5s ease-out'],
   breakpoints: {
-    mobile: {
-      minWidth: '(min-width: 540px)',
-      maxWidth: '(max-width: 540px)',
-    },
-    tablet: {
-      minWidth: '(min-width: 768px)',
-      maxWidth: '(max-width: 768px)',
-    },
+    tablet: '@media (min-width: 768px)',
+    desktop: '@media (min-width: 1024px)',
   },
 };
 
