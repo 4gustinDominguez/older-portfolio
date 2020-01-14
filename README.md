@@ -2,6 +2,9 @@
 
 ## Content
 
+⚠️ Under construction ⛏️
+http://frangaliana.github.io/portfolio
+
 My own website (portfolio) developed with React (with Hooks), Typescript, Styled-Components and Jest.
 
 Tests automation by performing Continuous Integration Integration (CI) with CircleCI.

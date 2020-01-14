@@ -9,7 +9,8 @@ export const useThemeMode = (): { mode: Mode; toggleMode: () => void } => {
     setMode(theme);
   };
 
-  /*
+  /** Save in the localStorage the mode for the background color
+
   React.useEffect(() => {
     const localMode = window.localStorage.getItem('mode') as Mode;
 
@@ -19,6 +20,7 @@ export const useThemeMode = (): { mode: Mode; toggleMode: () => void } => {
       setTheme('light');
     }
   }, []);
+
   */
 
   const toggleMode = () => {

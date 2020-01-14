@@ -28,19 +28,6 @@ export const createSocialNetworks = (tdkSocialNetworks: TKeys['header']['socialN
   },
 ];
 
-/*
-export const createLanguages = (tdkLanguages: TKeys["header"]["supportedLanguages"]): DropdownItem[] => [
-  {
-    code: ,
-    description: tdkLanguages.en,
-  },
-  {
-    code: ,
-    description: tdkLanguages.es
-  }
-]
-*/
-
 export const createCategories = (tdkCategories: TKeys['header']['categories']): IconLink[] => [
   {
     title: tdkCategories.aboutTitle,
