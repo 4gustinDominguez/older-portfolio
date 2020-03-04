@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
   ${fontFaces}
   :root{
     font-size: ${({ theme: { typography } }): string => `${typography.fontSize}`};
+    letter-spacing: -0.05em;
   }
 
   body{

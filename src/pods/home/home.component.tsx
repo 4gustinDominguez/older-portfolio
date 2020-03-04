@@ -6,6 +6,7 @@ import { createIntroduction, createContactLink } from './home.business';
 import { ImageButton } from '../../common';
 import { useTranslatedKeys } from '../../providers';
 import { tkeys } from '../../core/translation';
+import { Emoji } from '../../assets/icons/utils';
 
 type HomeProps = {};
 
@@ -20,6 +21,8 @@ export const Home: React.FC<HomeProps> = props => {
       <Subtitle>{subtitle}</Subtitle>
       <Text format={'normal'} lineSpacing={true}>
         {text}
+        <Emoji symbol="🌴" label="palmtree" />
+        <Emoji symbol="🌞" label="sun" />
       </Text>
       <ImageButton iconLink={contactLink} iconSize={3} />
     </HomeContainer>

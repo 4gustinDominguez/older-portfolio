@@ -1,6 +1,6 @@
 export const lightTheme = {
   typography: {
-    fontFamily: `"'Raleway', sans-serif"`,
+    fontFamily: `"'Inter', sans-serif"`,
     fontSize: 16,
   },
   palette: {
@@ -20,7 +20,7 @@ export const lightTheme = {
 
 export const darkTheme = {
   typography: {
-    fontFamily: `"'Raleway', sans-serif"`,
+    fontFamily: `"'Inter', sans-serif"`,
     fontSize: 16,
   },
   palette: {
