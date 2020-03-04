@@ -7,11 +7,12 @@ export const LinkText = styled.a`
   align-items: center;
 
   font-size: ${({ theme: { spacing } }) => spacing(2)}px;
-  color: ${({ theme: { palette } }) => palette.text}
+  color: ${({ theme: { palette } }) => palette.text};
   text-decoration: none;
   cursor: pointer;
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     color: ${({ theme: { palette } }) => palette.primary};
   }
 
