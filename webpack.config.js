@@ -14,7 +14,7 @@ module.exports = (mode = 'development') => ({
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
   },
-  devtool: mode === 'development' ? 'inline-source-map' : 'eval-source-map',
+  devtool: mode === 'development' ? 'inline-source-map' : '',
   devServer: {
     port: 3000,
     contentBase: path.resolve(basePath, 'build'),
