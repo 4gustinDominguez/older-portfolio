@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { ThemeProvider, createGlobalStyle } from '../../styled-components';
 
-import { fontFaces } from '../../app.fonts';
 import { Theme } from '../../app.theme';
 import { TagsHeader } from '../../common';
 
@@ -10,7 +9,6 @@ type ThemeStyledProviderProps = {
 };
 
 const GlobalStyle = createGlobalStyle`
-  ${fontFaces}
   :root{
     font-size: ${({ theme: { typography } }): string => `${typography.fontSize}`};
     letter-spacing: -0.05em;
